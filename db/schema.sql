@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS `res_create`;
+CREATE DATABASE `res_create`;

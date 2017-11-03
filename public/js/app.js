@@ -12,3 +12,10 @@ $('.datepicker').pickadate({
 	closeOnSelect: false // Close upon selecting a date,
 });
 
+$('.save-btn').click( function(){
+
+	console.log($('#info').serializeArray());
+
+});
+
+

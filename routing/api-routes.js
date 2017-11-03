@@ -37,7 +37,7 @@ module.exports = function(app) {
             res.json(dbUser);
         });
     });
-
+    
 
     // // Updated User Info 
     // app.put('/api/user', function(req,res){

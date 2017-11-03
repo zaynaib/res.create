@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes){
         Website: {
             type: DataTypes.STRING
         }, 
-    } ({timestamps: false}) )
+    }, ({timestamps: false}) )
 
     return User;
 };

@@ -1,6 +1,11 @@
 {
   "name": "start_express",
   "version": "1.0.0",
+  
+  "engines" : {
+    "node" : "8.7.0"
+  },
+
   "description": "",
   "main": "server.js",
   "scripts": {

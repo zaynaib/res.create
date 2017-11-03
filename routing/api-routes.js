@@ -2,19 +2,19 @@ var db = require('../models');
 
 module.exports = function(app) {
 // Find All Users and return results in json format
-    app.get('api/user', function(req,res) {
+    app.get('/api/user', function(req,res) {
         db.User.findAll({}).then(function(dbUser){
             res.json(dbUser);
         });
     });
 
-    app.get('api/user/:id', function(req,res){
+    app.get('/api/user/:id', function(req,res){
     // Find Users and return them in Json format 
         db.User.findOne({
             where: {
                 id: req.params.id
             }
-        }).then(function(dbuser){
+        }).then(function(dbUser){
             res.json(dbUser);
         });
     });
@@ -27,7 +27,7 @@ module.exports = function(app) {
         });
     });
 
-    app.delete('api/User/:id', function(req,res){
+    app.delete('/api/User/:id', function(req,res){
     // Deletes User with and specified ID
         db.User.destroy({
             where: {
@@ -37,7 +37,7 @@ module.exports = function(app) {
             res.json(dbUser);
         });
     });
-    
+
 
     // // Updated User Info 
     // app.put('/api/user', function(req,res){

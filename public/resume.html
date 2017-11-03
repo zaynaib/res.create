@@ -35,12 +35,12 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div id= "body-container" class="container">
 
-			<!--*** Card #1 ***-->
+			<!--Card #1-->
 
 			<div id="card1" class="card">
-				
+			
 				<div class="card-content">
 					<span class="card-title">Personal Info</span>
 
@@ -88,7 +88,7 @@
 								</div>
 				
 								<div class="row">
-									<a class="waves-effect waves-light right save-btn btn"><i class="material-icons right">done</i>Save</a>
+									<a class="waves-effect waves-light right save-user-btn btn"><i class="material-icons right">done</i>Save</a>
 								</div>
 
 							</form>
@@ -97,78 +97,17 @@
 				</div>
 			</div>
 
-			<!-- ** ** Card #2 ** **-->
-
-			<div id="card2" class="card">
-				
-				<div class="card-content">
-
-					<span class="card-title">Education</span>
-					
-					<div class="row">
-						<form class="col s12">
-
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="ed1-name" type="text" class="validate">
-									<label for="ed1-name">School Name</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="ed1-degree" type="text" class="validate">
-									<label for="ed1-degree">Degree</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="input-field col s12">
-									<input id="ed1-streetaddress" type="text" class="validate">
-									<label for="ed1-streetaddress">Street Address</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="input-field col s6">
-									<input id="ed1-city" type="text" class="validate">
-									<label for="ed1-city">City</label>
-								</div>
-								<div class="input-field col s3">
-									<input id="ed1-state" type="text" class="validate">
-									<label for="ed1-state">State</label>
-								</div>
-								<div class="input-field col s3">
-									<input id="ed1-zipcode" type="text" class="validate">
-									<label for="ed1-zip">ZIP Code</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="input-field col s6">
-									<input id="ed1-start-date" type="text" class="datepicker">
-									<label for="ed1-start-date">Start Date</label>
-								</div>
-								<div class="input-field col s6">
-									<input id="ed1-end-date" type="text" class="datepicker">
-									<label for="ed1-end-date">End Date</label>
-								</div>
-							</div>
-
-							<div class="row">
-								<a class="waves-effect waves-light right btn"><i class="material-icons right">done</i>Save</a>
-							</div>
-						</form>
-
-					</div>					
-				</div>
-			</div>
 		</div>
 
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
+		<script>
+			$(document).ready(function() {
+    		Materialize.updateTextFields();
+  		});
+		</script>
 
 	</body>
 </html>

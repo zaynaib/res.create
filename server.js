@@ -11,6 +11,13 @@ var PORT = process.env.PORT || 3000;
 // Tells Node we are creating an express server
 var app = express();
 
+// // Requiring our models for syncing
+// var db = require("./models");
+
+
+// // Static directory
+// app.use(express.static("public"));
+
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -22,7 +29,12 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 require('./routing/html-routes')(app);
 
 
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+// db.sequelize.sync({ force: true }).then(function () {
+
 // Setting app to Listen on the Specified Port
-app.listen(PORT, function(){
+    app.listen(PORT, function(){
     console.log("Port " + PORT + " is open, Server is Up!!");
 });
+// });

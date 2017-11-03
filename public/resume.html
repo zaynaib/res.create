@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="./css/materialize.min.css"  media="screen,projection"/>
+		<!--Import customer stylesheet-->
+		<link type="text/css" rel="stylesheet" href="./css/style.css">
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		<!--Top Logo / Navbar-->
+		<nav>
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo"> res.create</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/">Sign Out</a></li>
+				</ul>
+			</div>
+		</nav>
+
+			<div id="main-card" class="card">
+				<div class="card-tabs">
+					<ul class="tabs tabs-fixed-width">
+						<li class="tab"><a class="active" href="#resume-tab">Resume</a></li>
+						<li class="tab"><a href="#cover-letter-tab">Cover Letters</a></li>
+						<li class="tab"><a href="#generate-tab">Generate</a></li>
+					</ul>
+				</div>
+			</div>
+
+		<div class="container">
+
+			<!--*** Card #1 ***-->
+
+			<div id="main-card" class="card">
+				
+				<div class="card-content">
+      		<span class="card-title">Personal Info</span>
+					<div id="resume-tab">
+
+						<div class="row">
+							<form class="col s12">
+								
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="fullname" type="text" class="validate">
+										<label for="fullname">Full Name</label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="streetaddress" type="text" class="validate">
+										<label for="streetaddress">Street Address</label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="input-field col s6">
+										<input id="city" type="text" class="validate">
+										<label for="city">City</label>
+									</div>
+									<div class="input-field col s3">
+										<input id="state" type="text" class="validate">
+										<label for="state">State</label>
+									</div>
+									<div class="input-field col s3">
+										<input id="zipcode" type="text" class="validate">
+										<label for="zip">ZIP Code</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<a class="waves-effect waves-light right btn"><i class="material-icons right">done</i>Save</a>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--*** Card #2 ***-->
+
+			<div id="main-card" class="card">
+				
+				<div class="card-content">
+      		<span class="card-title">Education</span>
+					
+						<div class="row">
+							<form class="col s12">
+								
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="ed1-name" type="text" class="validate">
+										<label for="ed1-name">School Name</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="ed1-degree" type="text" class="validate">
+										<label for="ed1-degree">Degree</label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="ed1-streetaddress" type="text" class="validate">
+										<label for="ed1-streetaddress">Street Address</label>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="input-field col s6">
+										<input id="city" type="text" class="validate">
+										<label for="city">City</label>
+									</div>
+									<div class="input-field col s3">
+										<input id="state" type="text" class="validate">
+										<label for="state">State</label>
+									</div>
+									<div class="input-field col s3">
+										<input id="zipcode" type="text" class="validate">
+										<label for="zip">ZIP Code</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<a class="waves-effect waves-light right btn"><i class="material-icons right">done</i>Save</a>
+								</div>
+							</form>
+						</div>
+					
+				</div>
+			</div>
+
+		</div>
+
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</body>
+</html>

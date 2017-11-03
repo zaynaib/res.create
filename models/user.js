@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
         },
         Phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
             is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/]
         },

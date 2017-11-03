@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes){
         Phone: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/]
+            is: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/i
         },
         Email: {
             type: DataTypes.STRING,
@@ -27,3 +27,6 @@ module.exports = function(sequelize, DataTypes){
 
     return user;
 };
+
+
+ 

@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes){
     })
 
     education.associate = function(models) {
-        education.hasMany(models.education, {
+        models.user.hasMany(education, {
             onDelete: 'cascade'
         });
     };

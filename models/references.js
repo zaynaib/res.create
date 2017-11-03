@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    var references = sequelize.define('references', {
+    var References = sequelize.define('references', {
         Ref_Name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -22,5 +22,5 @@ module.exports = function (sequelize, DataTypes){
             allowNull: false
         }
     })
-    return references;
+    return References;
 }

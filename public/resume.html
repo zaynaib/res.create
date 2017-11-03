@@ -24,117 +24,74 @@
 			</div>
 		</nav>
 
-			<div id="main-card" class="card">
-				<div class="card-tabs">
-					<ul class="tabs tabs-fixed-width">
-						<li class="tab"><a class="active" href="#resume-tab">Resume</a></li>
-						<li class="tab"><a href="#cover-letter-tab">Cover Letters</a></li>
-						<li class="tab"><a href="#generate-tab">Generate</a></li>
-					</ul>
-				</div>
+		<!--Page Navigation Tabs-->
+		<div id="main-card" class="card">
+			<div class="card-tabs">
+				<ul class="tabs tabs-fixed-width">
+					<li class="tab"><a class="active" href="#resume-tab">Resume</a></li>
+					<li class="tab"><a href="#cover-letter-tab">Cover Letters</a></li>
+					<li class="tab"><a href="#generate-tab">Generate</a></li>
+				</ul>
 			</div>
+		</div>
 
-		<div class="container">
+		<div id= "body-container" class="container">
 
-			<!--*** Card #1 ***-->
+			<!--Card #1-->
 
-			<div id="main-card" class="card">
-				
+			<div id="card1" class="card">
+			
 				<div class="card-content">
-      		<span class="card-title">Personal Info</span>
-					<div id="resume-tab">
+					<span class="card-title">Personal Info</span>
 
 						<div class="row">
-							<form class="col s12">
-								
+							<form id="info" class="col s12">
+
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="fullname" type="text" class="validate">
-										<label for="fullname">Full Name</label>
+										<input id="info-fullname" name="Name" type="text" class="validate">
+										<label for="info-fullname">Full Name</label>
 									</div>
 								</div>
-								
+
 								<div class="row">
 									<div class="input-field col s12">
-										<input id="streetaddress" type="text" class="validate">
-										<label for="streetaddress">Street Address</label>
+										<input id="info-street-address" name="Address" type="text" class="validate">
+										<label for="info-street-address">Street Address</label>
 									</div>
 								</div>
-								
+
 								<div class="row">
 									<div class="input-field col s6">
-										<input id="city" type="text" class="validate">
-										<label for="city">City</label>
+										<input id="info-city" name="City" type="text" class="validate">
+										<label for="info-city">City</label>
 									</div>
 									<div class="input-field col s3">
-										<input id="state" type="text" class="validate">
-										<label for="state">State</label>
+										<input id="info-state" name="State" type="text" class="validate">
+										<label for="info-state">State</label>
 									</div>
 									<div class="input-field col s3">
-										<input id="zipcode" type="text" class="validate">
-										<label for="zip">ZIP Code</label>
+										<input id="info-zipcode" name="Zipcode" type="text" class="validate">
+										<label for="info-zipcode">ZIP Code</label>
 									</div>
 								</div>
 
 								<div class="row">
-									<a class="waves-effect waves-light right btn"><i class="material-icons right">done</i>Save</a>
+
+									<div class="input-field col s6">
+										<input id="info-email" name="Email" type="text" class="validate">
+										<label for="info-email">Email Address</label>
+									</div>
+									<div class="input-field col s6">
+										<input id="info-phone-number" name="Phone" type="text" class="validate">
+										<label for="info-phone-number">Phone Number</label>
+									</div>
 								</div>
-
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--*** Card #2 ***-->
-
-			<div id="main-card" class="card">
 				
-				<div class="card-content">
-      		<span class="card-title">Education</span>
-					
-						<div class="row">
-							<form class="col s12">
-								
 								<div class="row">
-									<div class="input-field col s12">
-										<input id="ed1-name" type="text" class="validate">
-										<label for="ed1-name">School Name</label>
-									</div>
+									<a class="waves-effect waves-light right save-user-btn btn"><i class="material-icons right">done</i>Save</a>
 								</div>
 
-								<div class="row">
-									<div class="input-field col s12">
-										<input id="ed1-degree" type="text" class="validate">
-										<label for="ed1-degree">Degree</label>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="input-field col s12">
-										<input id="ed1-streetaddress" type="text" class="validate">
-										<label for="ed1-streetaddress">Street Address</label>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="input-field col s6">
-										<input id="city" type="text" class="validate">
-										<label for="city">City</label>
-									</div>
-									<div class="input-field col s3">
-										<input id="state" type="text" class="validate">
-										<label for="state">State</label>
-									</div>
-									<div class="input-field col s3">
-										<input id="zipcode" type="text" class="validate">
-										<label for="zip">ZIP Code</label>
-									</div>
-								</div>
-
-								<div class="row">
-									<a class="waves-effect waves-light right btn"><i class="material-icons right">done</i>Save</a>
-								</div>
 							</form>
 						</div>
 					
@@ -146,6 +103,12 @@
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="js/materialize.min.js"></script>
-		<script type="text/javascript" src="js/materialize.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script>
+			$(document).ready(function() {
+    		Materialize.updateTextFields();
+  		});
+		</script>
+
 	</body>
 </html>

@@ -6,14 +6,26 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
             validate:  {min: -90, max: 90}
         },
-        Address: {
+        Street: {
             type: DataTypes.TEXT,
             allowNull: false
         },
+        City: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        State: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        Zip_Code: {
+            type: DataTypes.BIGINT,
+            allowNull: false
+        },
         Phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.BIGINT,
             allowNull: false,
-            is: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/i
+            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/]
         },
         Email: {
             type: DataTypes.STRING,
@@ -23,9 +35,7 @@ module.exports = function(sequelize, DataTypes){
         Website: {
             type: DataTypes.STRING
         }, 
-    } ,{timestamps: false}
-
-    ) 
+    }, ({timestamps: false}) )
 
     return User;
 };

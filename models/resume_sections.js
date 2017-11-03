@@ -22,8 +22,8 @@ module.exports = function(sequelize, DataTypes){
             }
         });
 
-        user.associate = function(models) {
-            user.hasMany(models.resumeSections, {
+        resumeSections.associate = function(models) {
+            resumeSections.hasMany(models.resumeSections, {
                 onDelete: 'cascade'
             });
         };

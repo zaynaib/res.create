@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
         }
     })
 
-    user.associate = function(models) {
-        user.hasMany(models.Skills, {
+    Skills.associate = function(models) {
+        Skills.hasMany(models.Skills, {
             onDelete: 'cascade'
         });
     };

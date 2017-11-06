@@ -11,18 +11,6 @@ module.exports = function(app) {
     
     }); //end of basic get route
 
-
-
-<<<<<<< HEAD
-    app.get('/api/education', function(req,res){
-        db.Education.findAll({}).then(function(dbEducation){
-            res.json(dbEducation);
-        });
-});
-=======
->>>>>>> 7e5b7763937c74698b1c06b0c7d8e81d8f6dded7
-
-
     app.get('/api/user/:id', function(req,res){
     // Find Users and return them in Json format 
         db.User.findOne({

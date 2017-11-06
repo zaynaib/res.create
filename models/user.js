@@ -8,20 +8,24 @@ module.exports = function(sequelize, DataTypes){
             defaultValue:true
         },
         Street: {
-            type: DataTypes.TEXT,
-            allowNull: false
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue:true
         },
         City: {
-            type: DataTypes.TEXT,
-            allowNull: false
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue:true
         },
         State: {
-            type: DataTypes.TEXT,
-            allowNull: false
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue:true
         },
         Zip_Code: {
             type: DataTypes.BIGINT,
-            allowNull: false
+            allowNull: false,
+            defaultValue:true
         },
         Phone: {
             type: DataTypes.BIGINT,
@@ -37,8 +41,7 @@ module.exports = function(sequelize, DataTypes){
         },
         Website: {
             type: DataTypes.STRING
-        }, 
-    {timestamps: true}
+        }},({timestamps: true}) 
     )
 
     User.associate = function(models) {

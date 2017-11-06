@@ -2,12 +2,15 @@ var db = require('../models');
 
 module.exports = function(app) {
 // Find All Users and return results in json format
-    app.get('api/user', function(req,res) {
+    app.get('/api/user', function(req,res) {
+        
         db.User.findAll({}).then(function(dbUser){
             res.json(dbUser);
         });
-    });
+    
+    }); //end of basic get route
 
+    
     app.get('api/user/:id', function(req,res){
     // Find Users and return them in Json format 
         db.User.findOne({
@@ -17,7 +20,7 @@ module.exports = function(app) {
         }).then(function(dbuser){
             res.json(dbUser);
         });
-    });
+    });//end of get function
 
     app.post('/api/user', function(req, res){
     // Creates a User with available data
@@ -25,7 +28,7 @@ module.exports = function(app) {
         db.User.create(req.body).then(function(dbUser) {
             res.json(dbUser);
         });
-    });
+    }); //end of post route
 
     app.delete('api/User/:id', function(req,res){
     // Deletes User with and specified ID
@@ -36,8 +39,8 @@ module.exports = function(app) {
         }).then(function(dbUser){
             res.json(dbUser);
         });
-    });
-
+    }); //end of delete app routes
+    
 
     // // Updated User Info 
     // app.put('/api/user', function(req,res){
@@ -46,4 +49,14 @@ module.exports = function(app) {
     //     res.json(dbUser);
     // });
 
-}
+
+
+   
+
+
+
+
+
+
+
+}//end of export

@@ -9,12 +9,13 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
         }
     })
-
+    
     Skills.associate = function(models) {
         Skills.hasMany(models.Resume, {
             onDelete: 'cascade'
         }, ({timestamps: false}) 
     )
     };
+    
     return Skills;
 }

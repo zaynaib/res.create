@@ -9,6 +9,13 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/education/:id', function(req,res){
+        db.Education.findAll({}).then(function(dbEducation){
+            res.json(dbEducation);
+        });
+    });
+
+
     app.get('/api/user/:id', function(req,res){
     // Find Users and return them in Json format 
         db.User.findOne({
@@ -42,8 +49,6 @@ module.exports = function(app) {
 
     // Update User Info 
     app.put('/api/user/:id', function(req, res){
-        //console.log("updating ====================================")
-        //console.log(req.body);
         
         db.User.update(req.body,
         {
@@ -55,5 +60,7 @@ module.exports = function(app) {
     });
     
 });
+
+
 
 }

@@ -25,6 +25,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 require('./routing/html-routes.js')(app);
 require('./routing/api-routes.js')(app);
+require('./routing/resume-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

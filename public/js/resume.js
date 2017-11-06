@@ -15,9 +15,17 @@ $('.datepicker').pickadate({
 	closeOnSelect: false // Close upon selecting a date,
 });
 
-//When Save Button clicked, User form data udpated in db
-$(document).on('click', '.save-user-btn', function(){
+// When card clicked, toggle to editor
+$(document).on('click', '.card-display', function(){
+	$(this).addClass('hide');
+	$(this).next().removeClass('hide');
+	Materialize.updateTextFields();
+});
 
+//When Save Button clicked, User form data udpated in db
+$(document).on('click', '.save-btn', function(){
+
+	var currentCard = $(this).data().value;
 	var newData = $('#info').serializeArray();
 
   // send an AJAX POST-request with jQuery
@@ -27,25 +35,28 @@ $(document).on('click', '.save-user-btn', function(){
   	data: newData,
   	// on success, run this callback
   	success: function(data) {
-      updateUser();
-      // tell the user we're adding a character with an alert window
-      Materialize.toast('Info Updated', 2000);
+      	switch(currentCard){
+      		case "info": 
+      			Materialize.toast('User Info Updated', 2000);
+      			refreshUser();
+      			break;
+      		
+      		case "education": 
+      			Materialize.toast('Education Info Updated', 2000);
+      			refreshEducation();
+      			break;
+      }
+
     }
   });
-});
-
-// When card clicked, toggle to editor
-$(document).on('click', '.card-display', function(){
-	$(this).addClass('hide');
-	$(this).next().removeClass('hide');
-	Materialize.updateTextFields();
 });
 
 // -- -- GLOBAL FUNCTIONS -- -- 
 
 //If user exists in database, populates the info fields
-function updateUser(){
+function refreshUser(){
 
+	//adds user info card to DOM
 	$.get("/api/user/"+userId)
 
 		.done(function(data){
@@ -54,7 +65,7 @@ function updateUser(){
 
 			$('#user-card').html(`
 
-				<div id="card1" class="card">
+				<div class="card">
 					
 					<div class="card-content">
 						<span class="card-title">Personal Info</span>
@@ -111,7 +122,7 @@ function updateUser(){
 									</div>
 					
 									<div class="row">
-										<a class="waves-effect waves-light right save-user-btn btn"><i class="material-icons right">done</i>Save</a>
+										<a class="waves-effect waves-light right save-btn btn" data-value="info"><i class="material-icons right">done</i>Save</a>
 									</div>
 
 								</form>
@@ -125,6 +136,62 @@ function updateUser(){
 	})
 };
 
+
+function refreshEducation(){
+
+	//adds education card to DOM
+	$.get("/api/user/"+userId)
+
+	.done(function(data){
+
+			console.log(data);
+
+			$('#education-card').html(`
+
+				<div id="card-education" class="card">
+
+					<div class="card-content">
+						<span class="card-title">Education History</span>
+
+						<div class="row card-display center">			
+							<p>${data.School_Name}, ${data.Degree}, ${data.Graduation_Date}</p>
+						</div>	
+
+						<div class="row card-editor hide">
+							<form id="info" class="col s12">
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input value="${data.School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
+										<label for="education-schoolname">School Name</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="input-field col s8">
+										<input value="${data.Degree}" id="education-degree" name="Degree" type="text" class="validate">
+										<label for="education-degree">Degree Earned</label>
+									</div>
+									<div class="input-field col s4">
+										<input value="${data.Graduation_Date}" name="Graduation_Date" type="text" class="validate">
+										<label for="education-graduationdate">Graduation Date</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<a class="waves-effect waves-light right save-btn btn" data-value="education"><i class="material-icons right">done</i>Save</a>
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+		`);
+	})
+};
+
 // -- -- MAIN LOGIC -- --
 
-updateUser();
+refreshUser();
+refreshEducation();

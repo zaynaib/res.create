@@ -26,9 +26,9 @@ $(document).on('click', '.card-display', function(){
 $(document).on('click', '.save-btn', function(){
 
 	var currentCard = $(this).data().value;
-	var newData = $('#info').serializeArray();
+	var newData = $('#'+currentCard).serializeArray();
 
-  // send an AJAX POST-request with jQuery
+  // send an AJAX PUT-request with jQuery
   $.ajax({
   	url: "/api/user/"+userId, 
   	type: 'PUT',
@@ -45,8 +45,17 @@ $(document).on('click', '.save-btn', function(){
       			Materialize.toast('Education Info Updated', 2000);
       			refreshEducation();
       			break;
-      }
 
+      		case "employment": 
+      			Materialize.toast('Employment Info Updated', 2000);
+      			refreshEmployment();
+      			break;
+
+      		case "employment": 
+      			Materialize.toast('Skills Info Updated', 2000);
+      			refreshSkills();
+      			break;			
+      }
     }
   });
 });
@@ -136,7 +145,6 @@ function refreshUser(){
 	})
 };
 
-
 function refreshEducation(){
 
 	//adds education card to DOM
@@ -158,7 +166,7 @@ function refreshEducation(){
 						</div>	
 
 						<div class="row card-editor hide">
-							<form id="info" class="col s12">
+							<form id="education" class="col s12">
 
 								<div class="row">
 									<div class="input-field col s12">
@@ -191,7 +199,121 @@ function refreshEducation(){
 	})
 };
 
+function refreshEmployment(){
+
+	//adds education card to DOM
+	$.get("/api/user/"+userId)
+
+	.done(function(data){
+
+			console.log(data);
+
+			$('#employment-card').html(`
+
+	<div id="card-education" class="card">
+
+		<div class="card-content">
+			<span class="card-title">Employment History</span>
+
+			<div class="row card-display center">			
+				<p>${data.Company_Name}</p>
+				<p>${data.Job_Title}</p>
+				<p>${data.Start_Date} to ${data.End_Date}</p>
+			</div>	
+
+			<div class="row card-editor hide">
+				<form id="employment" class="col s12">
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input value="${data.Company_Name}" name="Company_Name" type="text" class="validate">
+							<label>Company Name</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input value="${data.Job_Title}" name="Job_Title" type="text" class="validate">
+							<label>Job Title</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input value="${data.Start_Date}" name="Start_Date" type="text" class="validate">
+							<label>Start Date</label>
+						</div>
+						<div class="input-field col s6">
+							<input value="${data.End_Date}" name="Graduation_Date" type="text" class="validate">
+							<label>End Date</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<a class="waves-effect waves-light right save-btn btn" data-value="employment"><i class="material-icons right">done</i>Save</a>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+		`);
+	})
+};
+
+function refreshSkills(){
+
+	//adds skills card to DOM
+	$.get("/api/user/"+userId)
+
+	.done(function(data){
+
+			console.log(data);
+
+			$('#skills-card').html(`
+
+				<div id="card-skills" class="card">
+
+					<div class="card-content">
+						<span class="card-title">Skills</span>
+
+						<div class="row card-display center">			
+							<p>${data.Skills}</p>
+						</div>	
+
+						<div class="row card-editor hide">
+							<form id="skills" class="col s12">
+
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea name="Skills" class="materialize-textarea"></textarea>
+			          		<label>Skills</label>
+									</div>
+								</div>
+
+								<div class="row">
+									<a class="waves-effect waves-light right save-btn btn" data-value="employment"><i class="material-icons right">done</i>Save</a>
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+				</div>
+				
+		`);
+	})
+};
+
+
+
+
+
 // -- -- MAIN LOGIC -- --
 
 refreshUser();
 refreshEducation();
+refreshEmployment();
+refreshSkills();

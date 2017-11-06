@@ -1,0 +1,30 @@
+
+#user-info{
+    text-align: center;
+}
+
+#user-reach{
+    text-align:center;
+}
+
+#user-portfolio{
+    text-align:center; 
+}
+
+.container{
+    min-width: 100%;
+    max-width: 100%
+}
+
+
+@media print {
+    @page {
+        margin: 1cm, 2cm;
+
+    }
+    body {
+        font: 12pt Georgia, "Times New Roman", Times, serif;
+        line-height: 1.3;
+        position:relative
+    }
+}

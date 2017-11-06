@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes){
 
-    var Education = sequelize.define('education', {
+    var Education = sequelize.define('Education', {
         School_Name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -13,13 +13,13 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
+    }, ({timestamps: false}) )
 
     Education.associate = function(models) {
         Education.hasMany(models.Resume, {
             onDelete: 'cascade'
         });
-    }, ({timestamps: false}) 
+    }
 
     return Education;
 }

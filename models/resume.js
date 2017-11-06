@@ -6,7 +6,6 @@ module.exports = function (sequelize, DataTypes){
             //allowNull: false
         }
     });
-    
 
     Resume.associate = function(models) {
     // We're saying that a Post should belong to an Author

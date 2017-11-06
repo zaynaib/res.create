@@ -11,10 +11,6 @@ module.exports = function(app) {
     
     }); //end of basic get route
 
-
-
-
-
     app.get('/api/user/:id', function(req,res){
     // Find Users and return them in Json format 
         db.User.findOne({

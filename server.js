@@ -24,8 +24,11 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 require('./routing/html-routes.js')(app);
-require('./routing/api-routes.js')(app);
+require('./routing/user-api-routes.js')(app);
 require('./routing/resume-routes.js')(app);
+require('./routing/edu-routes.js')(app);
+require('./routing/job-routes.js')(app);
+require('./routing/skills-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -55,7 +58,7 @@ db.sequelize.sync({force: true}).then(function () {
             },
             include: db.Resume
         }).then(users => {
-            console.log(users.Resumes);
+            //console.log(users.Resumes);
         })
     })
 })

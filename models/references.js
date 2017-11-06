@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    var references = sequelize.define('references', {
+    var References = sequelize.define('references', {
         Ref_Name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -21,13 +21,14 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         }
+
     })
     
-    references.associate = function(models) {
-        references.hasMany(models.Resume, {
+    References.associate = function(models) {
+        References.hasMany(models.Resume, {
             onDelete: 'cascade'
         });
     };
     
-    return references;
+    return References;
 }

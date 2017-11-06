@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="../public/css/materialize.min.css"  media="screen,projection"/>
+	<!--Import customer stylesheet-->
+	<link type="text/css" rel="stylesheet" href="../public/css/materialize.css"  media="screen,projection"/>
+	<link type="text/css" rel="stylesheet" href="../public/css/style.css">
+
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+<!-- BEGIN USER INFO CARD -->
+
+	<div id="card1" class="card">
+
+		<div class="card-content">
+			<span class="card-title">Personal Info</span>
+
+			<div class="row card-display center">			
+				<p>${data.Name}</p>
+				<p>${data.Street}</p>
+				<p>${data.City}, ${data.State} ${data.Zip_Code}</p>
+				<p>${data.Email}</p>
+				<p>${data.Phone}</p>
+			</div>	
+
+			<div class="row card-editor hide">
+				<form id="info" class="col s12">
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input value="${data.Name}" id="info-fullname" name="Name" type="text" class="validate">
+							<label for="info-fullname">Full Name</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input value="${data.Street}" id="info-street-address" name="Street" type="text" class="validate">
+							<label for="info-street-address">Street Address</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input value="${data.City}" id="info-city" name="City" type="text" class="validate">
+							<label for="info-city">City</label>
+						</div>
+						<div class="input-field col s3">
+							<input value="${data.State}" id="info-state" name="State" type="text" class="validate">
+							<label for="info-state">State</label>
+						</div>
+						<div class="input-field col s3">
+							<input value="${data.Zip_Code}" id="info-zipcode" name="Zip_Code" type="text" class="validate">
+							<label for="info-zipcode">ZIP Code</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s6">
+							<input value="${data.Email}" id="info-email" name="Email" type="text" class="validate">
+							<label for="info-email">Email Address</label>
+						</div>
+						<div class="input-field col s6">
+							<input value="${data.Phone}" id="info-phone-number" name="Phone" type="text" class="validate">
+							<label for="info-phone-number">Phone Number</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<a class="waves-effect waves-light right save-user-btn btn"><i class="material-icons right">done</i>Save</a>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<!-- BEGIN USER INFO CARD -->
+
+	<div id="card-education" class="card">
+
+		<div class="card-content">
+			<span class="card-title">Education History</span>
+
+			<div class="row card-display center">			
+				<p>${data.School_Name}, ${data.Degree}, ${data.Graduation_Date}</p>
+			</div>	
+
+			<div class="row card-editor hide">
+				<form id="info" class="col s12">
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input value="${data.School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
+							<label for="education-schoolname">School Name</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="input-field col s8">
+							<input value="${data.Degree}" id="education-degree" name="Degree" type="text" class="validate">
+							<label for="education-degree">Degree Earned</label>
+						</div>
+						<div class="input-field col s4">
+							<input value="${data.Graduation_Date}" name="Graduation_Date" type="text" class="validate">
+							<label for="education-graduationdate">Graduation Date</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<a class="waves-effect waves-light right save-user-btn btn"><i class="material-icons right">done</i>Save</a>
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+
+</html>

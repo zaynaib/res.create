@@ -7,8 +7,20 @@ module.exports = function(sequelize, DataTypes){
             validate:  {min: -90, max: 90},
             defaultValue:true
         },
-        Address: {
+        Street: {
             type: DataTypes.TEXT,
+            allowNull: false
+        },
+        City: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        State: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        Zip_Code: {
+            type: DataTypes.BIGINT,
             allowNull: false
         },
         Phone: {
@@ -26,7 +38,6 @@ module.exports = function(sequelize, DataTypes){
         Website: {
             type: DataTypes.STRING
         }, 
-    }, 
     {timestamps: true}
     )
 

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes){
-    var References = sequelize.define('references', {
+    var References = sequelize.define('References', {
         Ref_Name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -20,8 +20,27 @@ module.exports = function (sequelize, DataTypes){
         Ref_Relationship: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+<<<<<<< HEAD
+        }}
+    )
+        References.associate = function(models) {
+            References.hasMany(models.Resume, {
+                onDelete: 'cascade'
+            });
+
     }, ({timestamps: false}) 
-)
+
+=======
+        }
+
+    })
+    
+    References.associate = function(models) {
+        References.hasMany(models.Resume, {
+            onDelete: 'cascade'
+        });
+    };
+    
+>>>>>>> 7e5b7763937c74698b1c06b0c7d8e81d8f6dded7
     return References;
 }

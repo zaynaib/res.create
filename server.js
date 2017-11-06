@@ -29,10 +29,36 @@ require('./routing/resume-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: false }).then(function () {
 
+db.sequelize.sync({force: true}).then(function () {
 // Setting app to Listen on the Specified Port
     app.listen(PORT, function(){
     console.log("Port " + PORT + " is open, Server is Up!!");
+
+    var userReceived = db.User.create({
+        Name: 'jd',
+        Email: 'jdtadlock@ yahoo.com',
+        Address:'123 Fake Street',
+        Phone:'773000000',
+        Website:'fakewebiste.com'
+    }).then((user) => {
+        var resume = db.Resume.create({
+            resume_name: 'Main',
+            UserId: user.get('id')
+        });
+
+        return resume;
+    }).then((user) => {
+        db.User.findOne({
+            where: {
+                id: 1
+            },
+            include: db.Resume
+        }).then(users => {
+            console.log(users.Resumes);
+        })
+    })
 })
 });
+
+

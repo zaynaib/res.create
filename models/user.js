@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes){
         Name: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate:  {min: -90, max: 90}
+            validate:  {min: -90, max: 90},
+            defaultValue:true
         },
         Street: {
             type: DataTypes.TEXT,
@@ -25,18 +26,26 @@ module.exports = function(sequelize, DataTypes){
         Phone: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/]
+            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
+            defaultValue:true
         },
         Email: {
             type: DataTypes.STRING,
             allowNull: false,
-            isEmail: true
+            isEmail: true,
+            defaultValue:true
         },
         Website: {
             type: DataTypes.STRING
         }, 
-    }, ({timestamps: false}) 
-)
+    {timestamps: true}
+    )
+
+    User.associate = function(models) {
+        User.hasMany(models.Resume, {
+            onDelete: 'cascade'
+        });
+    }; 
 
     return User;
 };

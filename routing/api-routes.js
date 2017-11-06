@@ -42,8 +42,6 @@ module.exports = function(app) {
 
     // Update User Info 
     app.put('/api/user/:id', function(req, res){
-        //console.log("updating ====================================")
-        //console.log(req.body);
         
         db.User.update(req.body,
         {

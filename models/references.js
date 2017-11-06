@@ -21,7 +21,14 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, ({timestamps: false}) 
-)
+
+    })
+    
+    References.associate = function(models) {
+        References.hasMany(models.Resume, {
+            onDelete: 'cascade'
+        });
+    };
+    
     return References;
 }

@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes){
         Education.hasMany(models.Resume, {
             onDelete: 'cascade'
         });
-    };
+    }, ({timestamps: false}) 
 
     return Education;
 }

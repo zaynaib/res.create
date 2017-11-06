@@ -9,11 +9,11 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/api/education/:id', function(req,res){
+    app.get('/api/education', function(req,res){
         db.Education.findAll({}).then(function(dbEducation){
             res.json(dbEducation);
         });
-    });
+});
 
 
     app.get('/api/user/:id', function(req,res){

@@ -5,7 +5,13 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         }
-    }, ({timestamps: false}) 
-);
+    })
+    Resume.associate = function(models) {
+        Resume.hasMany(models.User, {
+            onDelete: 'cascade'
+        });
+
+}, ({timestamps: false}) 
+
     return Resume;
 }

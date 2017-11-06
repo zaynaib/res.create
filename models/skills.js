@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
+    }, ({timestamps: false}))
     
     Skills.associate = function(models) {
         Skills.hasMany(models.Resume, {
             onDelete: 'cascade'
-        }, ({timestamps: false}) 
+        } 
     )
     };
     

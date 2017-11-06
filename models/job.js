@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes){
                 type: DataTypes.STRING,
                 allowNull: false
             }
-        });
+        }, ({timestamps: false}) );
 
         job.associate = function(models) {
             job.hasMany(models.Resume, {

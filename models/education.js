@@ -13,13 +13,13 @@ module.exports = function (sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false
         }
-    })
+    }, ({timestamps: false}) )
 
     Education.associate = function(models) {
         Education.hasMany(models.Resume, {
             onDelete: 'cascade'
         });
-    }, ({timestamps: false}) 
+    }
 
     return Education;
 }

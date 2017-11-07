@@ -65,9 +65,6 @@ $(document).on('click', '.create-btn', function(){
 
 	var currentCard = $(this).data().value;
 	var newData = $('#'+currentCard).serializeArray();
-	console.log(newData);
-
-	newData.push({'name':'ResumeId', 'value': userId});
 
   // send an AJAX PUT-request with jQuery
   $.ajax({
@@ -112,7 +109,7 @@ function refreshUser(){
 		.done(function(data){
 
 			if(data===null){
-				
+				alert("nothing!")
 				$('#user-card').html(`
 
 					<div class="card">
@@ -178,8 +175,7 @@ function refreshUser(){
 					</div>
 
 				</div>
-			`)
-
+			`);
 			}
 
 			else{
@@ -253,7 +249,7 @@ function refreshUser(){
 					</div>
 
 				</div>
-			`)
+			`);
 		}
 	})
 };
@@ -261,104 +257,56 @@ function refreshUser(){
 function refreshEducation(){
 
 	//adds education card to DOM
-	$.get("/api/education/"+userId)
+	$.get("/api/resume/"+userId)
 
 	.done(function(data){
-		console.log('Education:' );
-		console.log(data );
 
-			if(data.length===0){
-				$('#education-card').html(`
+			console.log(data);
 
-					<div class="card">
-						
-						<div class="card-content">
-							<span class="card-title">Education Info</span>
-							
-								<div class="row card-display center">			
-									<p>Click Here to Edit</p>
-								</div>	
-				
-								<div class="row card-editor hide">
-								<form id="education" class="col s12">
+			$('#education-card').html(`
 
-									<div class="row">
-										<div class="input-field col s12">
-											<input id="education-schoolname" name="School_Name" type="text" class="validate">
-											<label for="education-schoolname">School Name</label>
-										</div>
+				<div id="card-education" class="card">
+
+					<div class="card-content">
+						<span class="card-title">Education History</span>
+
+						<div class="row card-display center">			
+							<p>${data[0].Education[0].School_Name}, ${data[0].Education[0].Degree}, ${data[0].Education[0].Graduation_Date}</p>
+						</div>	
+
+						<div class="row card-editor hide">
+							<form id="education" class="col s12">
+
+								<div class="row">
+									<div class="input-field col s12">
+										<input value="${data[0].Education[0].School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
+										<label for="education-schoolname">School Name</label>
 									</div>
+								</div>
 
-									<div class="row">
-										<div class="input-field col s8">
-											<input id="education-degree" name="Degree" type="text" class="validate">
-											<label for="education-degree">Degree Earned</label>
-										</div>
-										<div class="input-field col s4">
-											<input name="Graduation_Date" type="text" class="validate">
-											<label for="education-graduationdate">Graduation Date</label>
-										</div>
+								<div class="row">
+									<div class="input-field col s8">
+										<input value="${data[0].Education[0].Degree}" id="education-degree" name="Degree" type="text" class="validate">
+										<label for="education-degree">Degree Earned</label>
 									</div>
-
-									<div class="row">
-										<a class="waves-effect waves-light right create-btn btn" data-value="education"><i class="material-icons right">done</i>Save</a>
+									<div class="input-field col s4">
+										<input value="${data[0].Education[0].Graduation_Date}" name="Graduation_Date" type="text" class="validate">
+										<label for="education-graduationdate">Graduation Date</label>
 									</div>
+								</div>
 
-								</form>
-							</div>
+								<div class="row">
+									<a class="waves-effect waves-light right save-btn btn" data-value="education"><i class="material-icons right">done</i>Save</a>
+								</div>
 
+							</form>
 						</div>
+
 					</div>
-			`)
-
-			}
-
-			else{
-				$('#education-card').html(`
-
-					<div id="card-education" class="card">
-
-						<div class="card-content">
-							<span class="card-title">Education History</span>
-
-							<div class="row card-display center">			
-								<p>${data[0].Education[0].School_Name}, ${data[0].Education[0].Degree}, ${data[0].Education[0].Graduation_Date}</p>
-							</div>	
-
-							<div class="row card-editor hide">
-								<form id="education" class="col s12">
-
-									<div class="row">
-										<div class="input-field col s12">
-											<input value="${data[0].Education[0].School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
-											<label for="education-schoolname">School Name</label>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="input-field col s8">
-											<input value="${data[0].Education[0].Degree}" id="education-degree" name="Degree" type="text" class="validate">
-											<label for="education-degree">Degree Earned</label>
-										</div>
-										<div class="input-field col s4">
-											<input value="${data[0].Education[0].Graduation_Date}" name="Graduation_Date" type="text" class="validate">
-											<label for="education-graduationdate">Graduation Date</label>
-										</div>
-									</div>
-
-									<div class="row">
-										<a class="waves-effect waves-light right save-btn btn" data-value="education"><i class="material-icons right">done</i>Save</a>
-									</div>
-
-								</form>
-							</div>
-
-						</div>
-					</div>
-				`);
-			}
-		})
-	};
+				</div>
+		`);
+	})
+};
 
 function refreshEmployment(){
 
@@ -469,22 +417,6 @@ function refreshSkills(){
 };
 
 // -- -- MAIN LOGIC -- --
-
-console.log('data');
-
-$.get("/api/resume/"+userId)
-
-	.done(function(data){
-
-		if(data.length === 0){
-
-			$.post("/api/resume/"+userId)
-
-		}
-
-		console.log(data);
-
-	})
 
 refreshUser();
 refreshEducation();

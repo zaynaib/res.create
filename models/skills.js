@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Skills = sequelize.define('Skills', {
-        skills:  {
+        Skills:  {
             type: DataTypes.TEXT,
             allowNull: false
         }, 

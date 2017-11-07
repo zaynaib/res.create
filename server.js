@@ -43,7 +43,7 @@ db.sequelize.sync({force: true}).then(function () {
         Email: 'jdtadlock@ yahoo.com',
         Address:'123 Fake Street',
         Phone:'773000000',
-        Website:'fakewebiste.com'
+        Website:'fakewebsite.com'
     }).then((user) => {
         var resume = db.Resume.create({
             resume_name: 'Main',

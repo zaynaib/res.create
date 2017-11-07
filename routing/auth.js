@@ -26,6 +26,10 @@ app.post('/signin', passport.authenticate('local-signin',
         failureRedirect: '/signin'}
   ));
 
+//======================WHERE THE MAGIC HAPPENS============================/
+//this is the route that prints out the user information from the user table
+app.get('/sessionUserId',authController.sessionUserId);
+
 
 
 function isLoggedIn(req, res, next) {

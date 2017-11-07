@@ -71,3 +71,4 @@ db.sequelize.sync({force:false}).then(function(){
 app.listen(3000, function(err){
     if(!err)
         console.log("Site is live"); else console.log(err)
+});

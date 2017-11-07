@@ -1,4 +1,5 @@
 var path = require('path');
+var models = require('../models');
 var exports = module.exports = {}
 
 
@@ -24,6 +25,28 @@ exports.dashboard = function(req,res){
 	res.sendFile(path.join(__dirname, '/../public/resume.html')); 
 
 }
+
+//prints out the user info from the session id
+exports.sessionUserId = function(req,res){
+    //body of the session
+    var sessionUser = req.session;
+    //res.send(sessionUserId);
+
+    //console.log the id of the user
+    console.log(sessionUser.passport.user, " ======user id number=====");
+
+
+   models.User.findAll({
+            where: {
+                id: sessionUser.passport.user
+            }
+        }).then(function(dbUser){
+            res.json(dbUser);
+        });
+}
+
+
+
 
 exports.logout = function(req,res){
 

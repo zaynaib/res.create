@@ -15,21 +15,6 @@ module.exports = function (sequelize, DataTypes){
         onDelete: 'cascade'
       }
     })
-
-    Resume.hasMany(models.Education, {
-      foreignKey: {
-        allowNull: false,
-        onDelete: 'cascade'
-      }
-    })
-
-    Resume.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false,
-        onDelete: 'cascade'
-      }
-    })
-
   };
   return Resume;
 

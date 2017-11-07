@@ -17,7 +17,7 @@
     <!--Top Logo / Navbar-->
     <nav class="nav cyan lighten-1">
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo"> res.create</a>
+        <a href="/" class="brand-logo"> res.create</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <!-- <li><a href="/">Sign Out</a></li> -->
         </ul>
@@ -30,13 +30,41 @@
         <div class="card-content">
           <span class="card-title">Login</span>
             <div class="row center">  
-              <h1>Error</h1>
+              <form id="signin" name="signin" method="post" action="signin">
+                <label for="email">Email Address</label>
+                <input class="text" name="email" type="text" />
+                <label for="password">Password</label>
+                <input name="password" type="password" />
+                <input class="btn" type="submit" value="Sign In" />
+              </form>
             </div>    
         </div>
       </div>
 
     </div>
-
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">res.create Inc.</h5>
+            <p class="grey-text text-lighten-4">Contact Us</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+      
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 Copyright
+        <a class="grey-text text-lighten-4 right" href="www.github.com/ttejuosho/res.Create">Project Github Page</a>
+        </div>
+      </div>
+    </footer>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>

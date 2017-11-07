@@ -3,7 +3,7 @@
     "username": "root",
     "password": "",
     "database": "res_create",
-    "password": "testpassword",
+    "password": "",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

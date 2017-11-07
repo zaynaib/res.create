@@ -2,23 +2,28 @@ module.exports = function(sequelize, DataTypes){
         var Jobs = sequelize.define('Jobs', {
             Job_Title: {
                 type: DataTypes.STRING,
-                allowNull: false,
+                defaultValue: '',
+                allowNull: false
             },
             Start_Date: {
                 type: DataTypes.STRING,
-                allowNull: false
+                defaultValue: '',
+                allowNull: true
             },
             End_Date: {
                 type: DataTypes.STRING,
+                defaultValue: '',
                 allowNull: true
             },
             Position: {
                 type: DataTypes.STRING,
-                allowNull: false
+                defaultValue: '',
+                allowNull: true
             },
             Company_Name: {
                 type: DataTypes.STRING,
-                allowNull: false
+                defaultValue: '',
+                allowNull: true
             }
         }, ({timestamps: false}) );
 

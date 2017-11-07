@@ -37,7 +37,7 @@ module.exports = function(app){
         db.Jobs.update(req.body,
         {
             where: {
-                id: req.params.id
+                ResumeId: req.params.id
             }
     }).then(function(dbJobs){
         res.json(dbJobs);

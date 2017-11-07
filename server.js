@@ -56,12 +56,14 @@ require('./routing/skills-routes.js')(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 
+
  //Sync Database
 db.sequelize.sync({force:false}).then(function(){
     console.log('Nice! Database looks fine')
 
 }).catch(function(err){
     console.log(err,"Something went wrong with the Database Update!")
+
 });
 
 

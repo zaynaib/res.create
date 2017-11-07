@@ -20,6 +20,7 @@ module.exports = function(sequelize, DataTypes){
         }, 
         Street: {
             type: DataTypes.STRING,
+
             allowNull: false,
             defaultValue:true
         },
@@ -48,7 +49,6 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
             isEmail: true
-           
         },
         Website: {
             type: DataTypes.STRING

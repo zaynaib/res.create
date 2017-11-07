@@ -7,9 +7,15 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             },
-            include: 
-                [ { model: db.Education },
-                {model: db.Jobs } ]
+        }).then(function(dbResume){
+            res.json(dbResume);
+        });
+    });
+
+    app.post('/api/resume/:id', function(req, res){
+        db.Resume.create({
+            resume_name: 'TBD',
+            UserId: req.params.id
         }).then(function(dbResume){
             res.json(dbResume);
         });

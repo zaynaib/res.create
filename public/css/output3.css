@@ -1,0 +1,8 @@
+
+@media print {
+    @page {
+        margin: 1cm, 2cm;
+
+    }
+   
+}

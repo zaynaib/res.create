@@ -7,9 +7,9 @@ module.exports = function(app) {
         db.User.findAll({}).then(function(dbUser){
             res.json(dbUser);
           
-        });
-    
+        });   
     }); //end of basic get route
+
 
     app.get('/api/user/:id', function(req,res){
     // Find Users and return them in Json format 
@@ -20,7 +20,7 @@ module.exports = function(app) {
         }).then(function(dbUser){
             res.json(dbUser);
         });
-    });//end of get function
+    });//end of getId function
 
     app.post('/api/user', function(req, res){
     // Creates a User with available data
@@ -30,7 +30,8 @@ module.exports = function(app) {
         });
     }); //end of post route
 
-    app.delete('/api/User/:id', function(req,res){
+
+    app.delete('/api/user/:id', function(req,res){
     // Deletes User with and specified ID
         db.User.destroy({
             where: {
@@ -40,7 +41,7 @@ module.exports = function(app) {
             res.json(dbUser);
         });
     }); //end of delete app routes
-    
+
 
     // Update User Info 
     app.put('/api/user/:id', function(req, res){
@@ -55,17 +56,5 @@ module.exports = function(app) {
     });
     
 });
-
-
-
-
-
-   
-
-
-
-
-
-
 
 }//end of export

@@ -24,8 +24,11 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 require('./routing/html-routes.js')(app);
-require('./routing/api-routes.js')(app);
+require('./routing/user-api-routes.js')(app);
 require('./routing/resume-routes.js')(app);
+require('./routing/edu-routes.js')(app);
+require('./routing/job-routes.js')(app);
+require('./routing/skills-routes.js')(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
@@ -36,11 +39,14 @@ db.sequelize.sync({force: true}).then(function () {
     console.log("Port " + PORT + " is open, Server is Up!!");
 
     var userReceived = db.User.create({
-        Name: 'jd',
-        Email: 'jdtadlock@ yahoo.com',
-        Address:'123 Fake Street',
+        Name: 'Johnny Fakeperson',
+        Email: 'jdtadlock@yahoo.com',
+        Street:'123 Fake Street',
+        City: 'Chicago',
+        State: 'IL',
+        Zip_Code: 60646,
         Phone:'773000000',
-        Website:'fakewebiste.com'
+        Website:'fakewebsite.com'
     }).then((user) => {
         var resume = db.Resume.create({
             resume_name: 'Main',
@@ -55,7 +61,7 @@ db.sequelize.sync({force: true}).then(function () {
             },
             include: db.Resume
         }).then(users => {
-            console.log(users.Resumes);
+            //console.log(users.Resumes);
         })
     })
 })

@@ -26,7 +26,10 @@ module.exports = function (sequelize, DataTypes){
 
     References.associate = function(models) {
         References.hasMany(models.Resume, {
-            onDelete: 'cascade'
+            foreignKey: {
+                allowNull: false,
+                onDelete: 'cascade'
+        }
         });
 
 } 

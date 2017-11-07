@@ -5,39 +5,39 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.STRING,
             allowNull: false,
             validate:  {min: -90, max: 90},
-            defaultValue:true
+            defaultValue:""
         },
         Street: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:true
+            defaultValue:""
         },
         City: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:true
+            defaultValue:""
         },
         State: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:true
+            defaultValue:""
         },
         Zip_Code: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            defaultValue:true
+            defaultValue:00000
         },
         Phone: {
             type: DataTypes.BIGINT,
             allowNull: false,
             is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
-            defaultValue:true
+            defaultValue:000-000-0000
         },
         Email: {
             type: DataTypes.STRING,
             allowNull: false,
             isEmail: true,
-            defaultValue:true
+            defaultValue:""
         },
         Website: {
             type: DataTypes.STRING

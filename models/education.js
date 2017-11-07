@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes){
     }, ({timestamps: false}) )
 
     Education.associate = function(models) {
-        Education.hasMany(models.Resume, {
+        Education.belongsTo(models.Resume, {
             onDelete: 'cascade'
         });
     }

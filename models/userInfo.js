@@ -7,6 +7,10 @@ module.exports = function(sequelize, DataTypes){
             validate:  {min: -90, max: 90},
             defaultValue:true
         },
+        password : {
+            type: DataTypes.STRING,
+            allowNull: false 
+        }, 
         Street: {
             type: DataTypes.STRING,
             allowNull: false,

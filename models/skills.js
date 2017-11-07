@@ -2,11 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     var Skills = sequelize.define('Skills', {
         Skills:  {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         }, 
         Languages: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: '',
+            allowNull: true
         }
     }, ({timestamps: false}))
     

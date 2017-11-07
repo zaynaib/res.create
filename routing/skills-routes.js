@@ -3,8 +3,12 @@ var db = require('../models');
 module.exports = function(app){
 
 
-app.get('/api/skills', function(req,res){
-    db.Skills.findAll({}).then(function(dbSkills){
+app.get('/api/skills/:id', function(req,res){
+    db.Skills.findAll({
+            where:{
+                resumeId: req.params.id
+            }
+        }).then(function(dbSkills){
         res.json(dbSkills);         
     });
 }); //end of education get route

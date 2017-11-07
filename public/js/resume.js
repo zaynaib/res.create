@@ -28,6 +28,9 @@ $(document).on('click', '.save-btn', function(){
 	var currentCard = $(this).data().value;
 	var newData = $('#'+currentCard).serializeArray();
 
+	console.log('put data')
+	console.log(newData);
+
   // send an AJAX PUT-request with jQuery
   $.ajax({
   	url: "/api/"+currentCard+"/"+userId, 
@@ -197,6 +200,7 @@ function refreshUser(){
 									<p>${data.City}, ${data.State} ${data.Zip_Code}</p>
 									<p>${data.Email}</p>
 									<p>${data.Phone}</p>
+									<i class="material-icons right grey-text">edit</i>
 								</div>	
 				
 								<div class="row card-editor hide">
@@ -264,8 +268,8 @@ function refreshEducation(){
 	$.get("/api/education/"+userId)
 
 	.done(function(data){
-		console.log('Education:' );
-		console.log(data );
+		console.log('Education:');
+		console.log(data);
 
 			if(data.length===0){
 
@@ -324,6 +328,7 @@ function refreshEducation(){
 
 							<div class="row card-display center">			
 								<p>${data[0].School_Name}, ${data[0].Degree}, ${data[0].Graduation_Date}</p>
+								<i class="material-icons right grey-text">edit</i>
 							</div>	
 
 							<div class="row card-editor hide">
@@ -437,6 +442,7 @@ function refreshEmployment(){
 									<p>${data[0].Company_Name}</p>
 									<p>${data[0].Job_Title}</p>
 									<p>${data[0].Start_Date} to ${data[0].End_Date}</p>
+									<i class="material-icons right grey-text">edit</i>
 								</div>	
 
 								<div class="row card-editor hide">
@@ -488,8 +494,45 @@ function refreshSkills(){
 	$.get("/api/skills/"+userId)
 
 	.done(function(data){
+		console.log('sklls')
+		console.log(data)
 
-			console.log(data);
+		if(data.length===0){
+
+			$('#skills-card').html(`
+
+					<div class="card">
+						
+						<div class="card-content">
+							<span class="card-title">Skills</span>
+							
+							<div class="row card-display center">			
+								<p>Click Here to Edit</p>
+							</div>	
+			
+							<div class="row card-editor hide">
+								<form id="skills" class="col s12">
+
+									<div class="row">
+										<div class="input-field col s12">
+											<textarea name="Skills" class="materialize-textarea"></textarea>
+				          		<label>Skills</label>
+										</div>
+									</div>
+
+								<div class="row">
+									<a class="waves-effect waves-light right create-btn btn" data-value="skills"><i class="material-icons right">done</i>Create</a>
+								</div>
+
+								</form>
+							</div>
+
+						</div>
+					</div>
+			`)
+		}
+
+		else{
 
 			$('#skills-card').html(`
 
@@ -500,6 +543,7 @@ function refreshSkills(){
 
 						<div class="row card-display center">			
 							<p>${data[0].Skills}</p>
+							<i class="material-icons right grey-text">edit</i>
 						</div>	
 
 						<div class="row card-editor hide">
@@ -521,8 +565,9 @@ function refreshSkills(){
 
 					</div>
 				</div>
-				
-		`);
+							
+			`);
+		}
 	})
 };
 

@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes){
       }
     })
 
-    Resume.hasMany(models.Jobs, {
+    Resume.belongsTo(models.User, {
       foreignKey: {
         allowNull: false,
         onDelete: 'cascade'

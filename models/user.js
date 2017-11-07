@@ -3,39 +3,38 @@ module.exports = function(sequelize, DataTypes){
         // Giving the User model its datatypes
         Name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate:  {min: -90, max: 90},
             defaultValue:""
         },
         Street: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue:""
         },
         City: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue:""
         },
         State: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             defaultValue:""
         },
         Zip_Code: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            defaultValue:00000
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:""
         },
         Phone: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
-            defaultValue:000-000-0000
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:""
         },
         Email: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isEmail: true,
             defaultValue:""
         },

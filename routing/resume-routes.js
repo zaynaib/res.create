@@ -8,7 +8,8 @@ module.exports = function(app) {
                 id: req.params.id
             },
             include: 
-                [ { model: db.Education } ]
+                [ { model: db.Education },
+                {model: db.Jobs } ]
         }).then(function(dbResume){
             res.json(dbResume);
         });

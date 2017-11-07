@@ -1,7 +1,7 @@
 
 // -- -- GLOBAL VARIABLES -- --
 
-var userId = 1;
+var userId = 2;
 
 // -- -- EVENT HANDLERS -- --
 
@@ -306,10 +306,6 @@ function refreshSkills(){
 		`);
 	})
 };
-
-
-
-
 
 // -- -- MAIN LOGIC -- --
 

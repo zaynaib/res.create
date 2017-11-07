@@ -5,11 +5,11 @@ module.exports = function(sequelize, DataTypes){
                 allowNull: false,
             },
             Start_Date: {
-                type: DataTypes.DATE,
+                type: DataTypes.STRING,
                 allowNull: false
             },
             End_Date: {
-                type: DataTypes.DATE,
+                type: DataTypes.STRING,
                 allowNull: true
             },
             Position: {

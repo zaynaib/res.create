@@ -39,9 +39,12 @@ db.sequelize.sync({force: true}).then(function () {
     console.log("Port " + PORT + " is open, Server is Up!!");
 
     var userReceived = db.User.create({
-        Name: 'jd',
-        Email: 'jdtadlock@ yahoo.com',
-        Address:'123 Fake Street',
+        Name: 'Johnny Fakeperson',
+        Email: 'jdtadlock@yahoo.com',
+        Street:'123 Fake Street',
+        City: 'Chicago',
+        State: 'IL',
+        Zip_Code: 60646,
         Phone:'773000000',
         Website:'fakewebsite.com'
     }).then((user) => {

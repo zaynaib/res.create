@@ -1,7 +1,7 @@
 
 // -- -- GLOBAL VARIABLES -- --
 
-var userId = 1;
+var userId = 2;
 
 // -- -- EVENT HANDLERS -- --
 
@@ -30,13 +30,13 @@ $(document).on('click', '.save-btn', function(){
 
   // send an AJAX PUT-request with jQuery
   $.ajax({
-  	url: "/api/user/"+userId, 
+  	url: "/api/"+currentCard+"/"+userId, 
   	type: 'PUT',
   	data: newData,
   	// on success, run this callback
   	success: function(data) {
       	switch(currentCard){
-      		case "info": 
+      		case "user"	: 
       			Materialize.toast('User Info Updated', 2000);
       			refreshUser();
       			break;
@@ -46,12 +46,12 @@ $(document).on('click', '.save-btn', function(){
       			refreshEducation();
       			break;
 
-      		case "employment": 
+      		case "jobs": 
       			Materialize.toast('Employment Info Updated', 2000);
       			refreshEmployment();
       			break;
 
-      		case "employment": 
+      		case "skills": 
       			Materialize.toast('Skills Info Updated', 2000);
       			refreshSkills();
       			break;			
@@ -88,7 +88,7 @@ function refreshUser(){
 							</div>	
 			
 							<div class="row card-editor hide">
-								<form id="info" class="col s12">
+								<form id="user" class="col s12">
 
 									<div class="row">
 										<div class="input-field col s12">
@@ -131,7 +131,7 @@ function refreshUser(){
 									</div>
 					
 									<div class="row">
-										<a class="waves-effect waves-light right save-btn btn" data-value="info"><i class="material-icons right">done</i>Save</a>
+										<a class="waves-effect waves-light right save-btn btn" data-value="user"><i class="material-icons right">done</i>Save</a>
 									</div>
 
 								</form>
@@ -148,7 +148,7 @@ function refreshUser(){
 function refreshEducation(){
 
 	//adds education card to DOM
-	$.get("/api/user/"+userId)
+	$.get("/api/resume/"+userId)
 
 	.done(function(data){
 
@@ -162,7 +162,7 @@ function refreshEducation(){
 						<span class="card-title">Education History</span>
 
 						<div class="row card-display center">			
-							<p>${data.School_Name}, ${data.Degree}, ${data.Graduation_Date}</p>
+							<p>${data[0].Education[0].School_Name}, ${data[0].Education[0].Degree}, ${data[0].Education[0].Graduation_Date}</p>
 						</div>	
 
 						<div class="row card-editor hide">
@@ -170,18 +170,18 @@ function refreshEducation(){
 
 								<div class="row">
 									<div class="input-field col s12">
-										<input value="${data.School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
+										<input value="${data[0].Education[0].School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
 										<label for="education-schoolname">School Name</label>
 									</div>
 								</div>
 
 								<div class="row">
 									<div class="input-field col s8">
-										<input value="${data.Degree}" id="education-degree" name="Degree" type="text" class="validate">
+										<input value="${data[0].Education[0].Degree}" id="education-degree" name="Degree" type="text" class="validate">
 										<label for="education-degree">Degree Earned</label>
 									</div>
 									<div class="input-field col s4">
-										<input value="${data.Graduation_Date}" name="Graduation_Date" type="text" class="validate">
+										<input value="${data[0].Education[0].Graduation_Date}" name="Graduation_Date" type="text" class="validate">
 										<label for="education-graduationdate">Graduation Date</label>
 									</div>
 								</div>
@@ -202,7 +202,7 @@ function refreshEducation(){
 function refreshEmployment(){
 
 	//adds education card to DOM
-	$.get("/api/user/"+userId)
+	$.get("/api/resume/"+userId)
 
 	.done(function(data){
 
@@ -216,41 +216,41 @@ function refreshEmployment(){
 			<span class="card-title">Employment History</span>
 
 			<div class="row card-display center">			
-				<p>${data.Company_Name}</p>
-				<p>${data.Job_Title}</p>
-				<p>${data.Start_Date} to ${data.End_Date}</p>
+				<p>${data[0].Jobs[0].Company_Name}</p>
+				<p>${data[0].Jobs[0].Job_Title}</p>
+				<p>${data[0].Jobs[0].Start_Date} to ${data[0].Jobs[0].End_Date}</p>
 			</div>	
 
 			<div class="row card-editor hide">
-				<form id="employment" class="col s12">
+				<form id="jobs" class="col s12">
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input value="${data.Company_Name}" name="Company_Name" type="text" class="validate">
+							<input value="${data[0].Jobs[0].Company_Name}" name="Company_Name" type="text" class="validate">
 							<label>Company Name</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input value="${data.Job_Title}" name="Job_Title" type="text" class="validate">
+							<input value="${data[0].Jobs[0].Job_Title}" name="Job_Title" type="text" class="validate">
 							<label>Job Title</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s6">
-							<input value="${data.Start_Date}" name="Start_Date" type="text" class="validate">
+							<input value="${data[0].Jobs[0].Start_Date}" name="Start_Date" type="text" class="validate">
 							<label>Start Date</label>
 						</div>
 						<div class="input-field col s6">
-							<input value="${data.End_Date}" name="Graduation_Date" type="text" class="validate">
+							<input value="${data[0].Jobs[0].End_Date}" name="Graduation_Date" type="text" class="validate">
 							<label>End Date</label>
 						</div>
 					</div>
 
 					<div class="row">
-						<a class="waves-effect waves-light right save-btn btn" data-value="employment"><i class="material-icons right">done</i>Save</a>
+						<a class="waves-effect waves-light right save-btn btn" data-value="jobs"><i class="material-icons right">done</i>Save</a>
 					</div>
 
 				</form>
@@ -266,7 +266,7 @@ function refreshEmployment(){
 function refreshSkills(){
 
 	//adds skills card to DOM
-	$.get("/api/user/"+userId)
+	$.get("/api/skills/"+userId)
 
 	.done(function(data){
 
@@ -280,7 +280,7 @@ function refreshSkills(){
 						<span class="card-title">Skills</span>
 
 						<div class="row card-display center">			
-							<p>${data.Skills}</p>
+							<p>${data[0].Skills}</p>
 						</div>	
 
 						<div class="row card-editor hide">
@@ -288,13 +288,13 @@ function refreshSkills(){
 
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea name="Skills" class="materialize-textarea"></textarea>
+										<textarea name="Skills" class="materialize-textarea">${data[0].Skills}</textarea>
 			          		<label>Skills</label>
 									</div>
 								</div>
 
 								<div class="row">
-									<a class="waves-effect waves-light right save-btn btn" data-value="employment"><i class="material-icons right">done</i>Save</a>
+									<a class="waves-effect waves-light right save-btn btn" data-value="skills"><i class="material-icons right">done</i>Save</a>
 								</div>
 
 							</form>
@@ -306,10 +306,6 @@ function refreshSkills(){
 		`);
 	})
 };
-
-
-
-
 
 // -- -- MAIN LOGIC -- --
 

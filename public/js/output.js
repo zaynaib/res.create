@@ -1,4 +1,4 @@
-var userId = 2;
+var userId = 1;
 
 $.get("/api/user/"+userId)
 		.done(function(data){

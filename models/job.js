@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-        var job = sequelize.define('form', {
+        var Jobs = sequelize.define('Jobs', {
             Job_Title: {
                 type: DataTypes.STRING,
                 allowNull: false,
@@ -22,11 +22,14 @@ module.exports = function(sequelize, DataTypes){
             }
         }, ({timestamps: false}) );
 
-        job.associate = function(models) {
-            job.hasMany(models.Resume, {
-                onDelete: 'cascade'
+        Jobs.associate = function(models) {
+            Jobs.belongsTo(models.Resume, {
+                foreignKey: {
+                    allowNull: false,
+                    onDelete: 'cascade'
+                }
             });
         };
 
-        return job;
+        return Jobs;
 }

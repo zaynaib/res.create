@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Skills = sequelize.define('Skills', {
-        skills:  {
+        Skills:  {
             type: DataTypes.TEXT,
             allowNull: false
         }, 
@@ -11,9 +11,12 @@ module.exports = function(sequelize, DataTypes) {
     }, ({timestamps: false}))
     
     Skills.associate = function(models) {
-        Skills.hasMany(models.Resume, {
+        Skills.belongsTo(models.Resume, {
+            foreignKey: {
+            allowNull: false,
             onDelete: 'cascade'
         } 
+    }
     )
     };
     

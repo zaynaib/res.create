@@ -2,8 +2,12 @@ var db = require('../models');
 
 module.exports = function(app){
 
-    app.get('/api/education', function(req,res){
-        db.Education.findAll({}).then(function(dbEducation){
+    app.get('/api/education/:id', function(req,res){
+        db.Education.findAll({
+            where:{
+                resumeId: req.params.id
+            }
+        }).then(function(dbEducation){
             res.json(dbEducation);         
         });
     }); //end of education get route

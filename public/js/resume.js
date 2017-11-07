@@ -288,7 +288,7 @@ function refreshSkills(){
 
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea name="Skills" class="materialize-textarea"></textarea>
+										<textarea name="Skills" class="materialize-textarea">${data[0].Skills}</textarea>
 			          		<label>Skills</label>
 									</div>
 								</div>

@@ -1,5 +1,6 @@
 var db = require('../models');
 
+
 module.exports = function(app) {
 // Find All Users and return results in json format
     app.get('/api/user', function(req,res) {
@@ -56,5 +57,6 @@ module.exports = function(app) {
     });
     
 });
+
 
 }//end of export

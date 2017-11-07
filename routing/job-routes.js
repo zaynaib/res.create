@@ -2,12 +2,8 @@ var db = require('../models');
 
 module.exports = function(app){
 
-    app.get('/api/jobs/:id', function(req,res){
-        db.Jobs.findAll({
-            where:{
-            resumeId: req.params.id
-        }
-    }).then(function(dbJobs){
+    app.get('/api/jobs', function(req,res){
+        db.Jobs.findAll({}).then(function(dbJobs){
             res.json(dbJobs);         
         });
     }); //end of Jobs get route

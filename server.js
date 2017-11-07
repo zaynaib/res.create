@@ -33,7 +33,7 @@ require('./routing/skills-routes.js')(app);
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 
-db.sequelize.sync({force: true}).then(function () {
+db.sequelize.sync({force: false}).then(function () {
 // Setting app to Listen on the Specified Port
     app.listen(PORT, function(){
     console.log("Port " + PORT + " is open, Server is Up!!");

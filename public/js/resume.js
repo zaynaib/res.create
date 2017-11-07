@@ -268,6 +268,7 @@ function refreshEducation(){
 		console.log(data );
 
 			if(data.length===0){
+
 				$('#education-card').html(`
 
 					<div class="card">
@@ -322,7 +323,7 @@ function refreshEducation(){
 							<span class="card-title">Education History</span>
 
 							<div class="row card-display center">			
-								<p>${data[0].Education[0].School_Name}, ${data[0].Education[0].Degree}, ${data[0].Education[0].Graduation_Date}</p>
+								<p>${data[0].School_Name}, ${data[0].Degree}, ${data[0].Graduation_Date}</p>
 							</div>	
 
 							<div class="row card-editor hide">
@@ -330,18 +331,18 @@ function refreshEducation(){
 
 									<div class="row">
 										<div class="input-field col s12">
-											<input value="${data[0].Education[0].School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
+											<input value="${data[0].School_Name}" id="education-schoolname" name="School_Name" type="text" class="validate">
 											<label for="education-schoolname">School Name</label>
 										</div>
 									</div>
 
 									<div class="row">
 										<div class="input-field col s8">
-											<input value="${data[0].Education[0].Degree}" id="education-degree" name="Degree" type="text" class="validate">
+											<input value="${data[0].Degree}" id="education-degree" name="Degree" type="text" class="validate">
 											<label for="education-degree">Degree Earned</label>
 										</div>
 										<div class="input-field col s4">
-											<input value="${data[0].Education[0].Graduation_Date}" name="Graduation_Date" type="text" class="validate">
+											<input value="${data[0].Graduation_Date}" name="Graduation_Date" type="text" class="validate">
 											<label for="education-graduationdate">Graduation Date</label>
 										</div>
 									</div>
@@ -362,65 +363,122 @@ function refreshEducation(){
 
 function refreshEmployment(){
 
-	//adds education card to DOM
-	$.get("/api/resume/"+userId)
+		$.get("/api/jobs/"+userId)
 
-	.done(function(data){
-
+		.done(function(data){
+			console.log('Jobs:');
 			console.log(data);
 
-			$('#employment-card').html(`
+			if(data.length===0){
+				$('#employment-card').html(`
 
-	<div id="card-education" class="card">
+					<div class="card">
+						
+						<div class="card-content">
+							<span class="card-title">Employment Info</span>
+							
+								<div class="row card-display center">			
+									<p>Click Here to Edit</p>
+								</div>	
+				
+								<div class="row card-editor hide">
+								<form id="jobs" class="col s12">
 
-		<div class="card-content">
-			<span class="card-title">Employment History</span>
+										<div class="row">
+											<div class="input-field col s12">
+												<input name="Company_Name" type="text" class="validate">
+												<label>Company Name</label>
+											</div>
+										</div>
 
-			<div class="row card-display center">			
-				<p>${data[0].Jobs[0].Company_Name}</p>
-				<p>${data[0].Jobs[0].Job_Title}</p>
-				<p>${data[0].Jobs[0].Start_Date} to ${data[0].Jobs[0].End_Date}</p>
-			</div>	
+										<div class="row">
+											<div class="input-field col s12">
+												<input name="Job_Title" type="text" class="validate">
+												<label>Job Title</label>
+											</div>
+										</div>
 
-			<div class="row card-editor hide">
-				<form id="jobs" class="col s12">
+										<div class="row">
+											<div class="input-field col s6">
+												<input name="Start_Date" type="text" class="validate">
+												<label>Start Date</label>
+											</div>
+											<div class="input-field col s6">
+												<input name="End_Date" type="text" class="validate">
+												<label>End Date</label>
+											</div>
+										</div>
 
-					<div class="row">
-						<div class="input-field col s12">
-							<input value="${data[0].Jobs[0].Company_Name}" name="Company_Name" type="text" class="validate">
-							<label>Company Name</label>
+									<div class="row">
+										<a class="waves-effect waves-light right create-btn btn" data-value="jobs"><i class="material-icons right">done</i>Create</a>
+									</div>
+
+								</form>
+							</div>
+
 						</div>
 					</div>
+			`)
+			}
 
-					<div class="row">
-						<div class="input-field col s12">
-							<input value="${data[0].Jobs[0].Job_Title}" name="Job_Title" type="text" class="validate">
-							<label>Job Title</label>
+			else{
+
+					console.log("*****")
+					console.log(data);
+
+						$('#employment-card').html(`
+
+						<div id="card-education" class="card">
+
+							<div class="card-content">
+								<span class="card-title">Employment History</span>
+
+								<div class="row card-display center">			
+									<p>${data[0].Company_Name}</p>
+									<p>${data[0].Job_Title}</p>
+									<p>${data[0].Start_Date} to ${data[0].End_Date}</p>
+								</div>	
+
+								<div class="row card-editor hide">
+									<form id="jobs" class="col s12">
+
+										<div class="row">
+											<div class="input-field col s12">
+												<input value="${data[0].Company_Name}" name="Company_Name" type="text" class="validate">
+												<label>Company Name</label>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="input-field col s12">
+												<input value="${data[0].Job_Title}" name="Job_Title" type="text" class="validate">
+												<label>Job Title</label>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="input-field col s6">
+												<input value="${data[0].Start_Date}" name="Start_Date" type="text" class="validate">
+												<label>Start Date</label>
+											</div>
+											<div class="input-field col s6">
+												<input value="${data[0].End_Date}" name="End_Date" type="text" class="validate">
+												<label>End Date</label>
+											</div>
+										</div>
+
+										<div class="row">
+											<a class="waves-effect waves-light right save-btn btn" data-value="jobs"><i class="material-icons right">done</i>Save</a>
+										</div>
+
+									</form>
+								</div>
+
+							</div>
 						</div>
-					</div>
 
-					<div class="row">
-						<div class="input-field col s6">
-							<input value="${data[0].Jobs[0].Start_Date}" name="Start_Date" type="text" class="validate">
-							<label>Start Date</label>
-						</div>
-						<div class="input-field col s6">
-							<input value="${data[0].Jobs[0].End_Date}" name="Graduation_Date" type="text" class="validate">
-							<label>End Date</label>
-						</div>
-					</div>
-
-					<div class="row">
-						<a class="waves-effect waves-light right save-btn btn" data-value="jobs"><i class="material-icons right">done</i>Save</a>
-					</div>
-
-				</form>
-			</div>
-
-		</div>
-	</div>
-
-		`);
+					`);
+				}
 	})
 };
 

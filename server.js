@@ -68,7 +68,7 @@ db.sequelize.sync({force:false}).then(function(){
 
 
 //launch server
-app.listen(3000, function(err){
+app.listen(PORT, function(err){
     if(!err)
         console.log("Site is live"); else console.log(err)
 });

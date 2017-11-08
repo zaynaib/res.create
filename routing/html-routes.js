@@ -14,6 +14,10 @@ module.exports = function(app){
         res.sendFile(path.join(__dirname, '/../public/signin.html'))
     })
 
+    app.get('/template/:id', function(req,res){
+        res.sendFile(path.join(__dirname, '/../public/templates/template'+req.params.id+'.html'))
+    })
+
     app.get('/resume', function(req,res){
         res.sendFile(path.join(__dirname, '/../public/resume.html'))
     })

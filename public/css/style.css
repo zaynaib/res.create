@@ -2,6 +2,9 @@ body {
 	background-color: lightgrey;
 }
 
+/*Fixes Materialize Tab Overflow*/
+ul.tabs {overflow: hidden; }
+
 /*Code for homepage: parallax*/
 p {
   line-height: 2rem;

@@ -9,6 +9,8 @@
 		<link type="text/css" rel="stylesheet" href="./css/materialize.css"  media="screen,projection"/>
 		<link type="text/css" rel="stylesheet" href="./css/style.css">
 
+		<title>res.create</title>
+
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
@@ -24,108 +26,124 @@
 			</div>
 		
 			<!--Page Navigation Tabs-->
-			<div class="nav-content">
+			<div class="container nav-content">
 				<ul class="tabs tabs-fixed-width tabs-transparent">
-					<li class="tab"><a class="active" href="#resume-tab">Resume</a></li>
-					<li class="tab"><a href="#cover-letter-tab">Cover Letters</a></li>
-					<li class="tab"><a href="/generate">Generate</a></li>
+					<li class="tab"><a class="active" href="#editor-tab">Editor</a></li>
+					<li class="tab"><a class="active" href="#generator-tab">Generator</a></li>
 				</ul>
 			</div>
 		
 		</nav>
 
+		<div class="container">
 
-		<div id= "body-container" class="container">
+			<div id="editor-tab">
+				<!--User Info Card-->
+				<div id="user-card" class="card">
+					<div class="card-content">
+						<span class="card-title">Personal Info</span>
+							<div class="row center">	
+								
+							<!-- LOADING SPINNER -->
+								<div class="preloader-wrapper active">
+							    <div class="spinner-layer spinner-blue-only">
+							      <div class="circle-clipper left">
+							        <div class="circle"></div>
+							      </div><div class="gap-patch">
+							        <div class="circle"></div>
+							      </div><div class="circle-clipper right">
+							        <div class="circle"></div>
+							      </div>
+							    </div>
+							  </div>
 
-			<!--User Info Card-->
-			<div id="user-card" class="card">
-				<div class="card-content">
-					<span class="card-title">Personal Info</span>
-						<div class="row center">	
-							
-						<!-- LOADING SPINNER -->
-							<div class="preloader-wrapper active">
-						    <div class="spinner-layer spinner-blue-only">
-						      <div class="circle-clipper left">
-						        <div class="circle"></div>
-						      </div><div class="gap-patch">
-						        <div class="circle"></div>
-						      </div><div class="circle-clipper right">
-						        <div class="circle"></div>
-						      </div>
-						    </div>
-						  </div>
+							</div>		
+					</div>
+				</div>
 
-						</div>		
+				<!--Education Card-->
+				<div id="education-card" class="card">
+					<div class="card-content">
+						<span class="card-title">Education History</span>
+							<div class="row center">	
+
+								<!-- LOADING SPINNER -->
+								<div class="preloader-wrapper active">
+							    <div class="spinner-layer spinner-blue-only">
+							      <div class="circle-clipper left">
+							        <div class="circle"></div>
+							      </div><div class="gap-patch">
+							        <div class="circle"></div>
+							      </div><div class="circle-clipper right">
+							        <div class="circle"></div>
+							      </div>
+							    </div>
+							  </div>
+
+							</div>		
+					</div>
+				</div>
+
+				<!--Employment Card-->
+				<div id="employment-card" class="card">
+					<div class="card-content">
+						<span class="card-title">Employment History</span>
+							<div class="row center">	
+								
+								<!-- LOADING SPINNER -->
+								<div class="preloader-wrapper active">
+							    <div class="spinner-layer spinner-blue-only">
+							      <div class="circle-clipper left">
+							        <div class="circle"></div>
+							      </div><div class="gap-patch">
+							        <div class="circle"></div>
+							      </div><div class="circle-clipper right">
+							        <div class="circle"></div>
+							      </div>
+							    </div>
+							  </div>
+
+							</div>		
+					</div>
+				</div>
+
+				<!--Skills Card-->
+				<div id="skills-card" class="card">
+					<div class="card-content">
+						<span class="card-title">Skills</span>
+							<div class="row center">	
+								
+								<!-- LOADING SPINNER -->
+								<div class="preloader-wrapper active">
+							    <div class="spinner-layer spinner-blue-only">
+							      <div class="circle-clipper left">
+							        <div class="circle"></div>
+							      </div><div class="gap-patch">
+							        <div class="circle"></div>
+							      </div><div class="circle-clipper right">
+							        <div class="circle"></div>
+							      </div>
+							    </div>
+							  </div>
+
+							</div>		
+					</div>
 				</div>
 			</div>
 
-			<!--Education Card-->
-			<div id="education-card" class="card">
-				<div class="card-content">
-					<span class="card-title">Education History</span>
-						<div class="row center">	
+			<!-- Gen Tab -->
+			<div id="generator-tab">
+				<div id="generator-card" class="card">
+					<div class="card-content">
+						<span class="card-title">Available Templates</span>
+							<div class="row center">	
 
-							<!-- LOADING SPINNER -->
-							<div class="preloader-wrapper active">
-						    <div class="spinner-layer spinner-blue-only">
-						      <div class="circle-clipper left">
-						        <div class="circle"></div>
-						      </div><div class="gap-patch">
-						        <div class="circle"></div>
-						      </div><div class="circle-clipper right">
-						        <div class="circle"></div>
-						      </div>
-						    </div>
-						  </div>
+								<a class="waves-effect waves-light btn-large" href="/template/1" target="_blank"><i class="material-icons left">content_copy</i>Classic</a>
+								<a class="waves-effect waves-light btn-large" href="/template/2" target="_blank" ><i class="material-icons left">content_copy</i>Modern</a>
+								<a class="waves-effect waves-light btn-large" href="/template/3" target="_blank" ><i class="material-icons left">content_copy</i>Plaintext</a>
 
-						</div>		
-				</div>
-			</div>
-
-			<!--Employment Card-->
-			<div id="employment-card" class="card">
-				<div class="card-content">
-					<span class="card-title">Employment History</span>
-						<div class="row center">	
-							
-							<!-- LOADING SPINNER -->
-							<div class="preloader-wrapper active">
-						    <div class="spinner-layer spinner-blue-only">
-						      <div class="circle-clipper left">
-						        <div class="circle"></div>
-						      </div><div class="gap-patch">
-						        <div class="circle"></div>
-						      </div><div class="circle-clipper right">
-						        <div class="circle"></div>
-						      </div>
-						    </div>
-						  </div>
-
-						</div>		
-				</div>
-			</div>
-
-			<!--Skills Card-->
-			<div id="skills-card" class="card">
-				<div class="card-content">
-					<span class="card-title">Skills</span>
-						<div class="row center">	
-							
-							<!-- LOADING SPINNER -->
-							<div class="preloader-wrapper active">
-						    <div class="spinner-layer spinner-blue-only">
-						      <div class="circle-clipper left">
-						        <div class="circle"></div>
-						      </div><div class="gap-patch">
-						        <div class="circle"></div>
-						      </div><div class="circle-clipper right">
-						        <div class="circle"></div>
-						      </div>
-						    </div>
-						  </div>
-
-						</div>		
+							</div>		
+					</div>
 				</div>
 			</div>
 

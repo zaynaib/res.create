@@ -16,7 +16,7 @@ function refreshUser(){
 function refreshSkills(){
 	$.get("/api/skills/"+userId)
 	.done(function(data){
-		$('#skills-skills').append(`<li>${data[0].Skills}</li>`);
+		$('#skills-skills').append(`<li>${data[0].Skills.replace(/<br>/g,"</li><li>")}</li>`);
 	});
 }
 

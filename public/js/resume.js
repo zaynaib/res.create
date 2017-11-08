@@ -28,6 +28,10 @@ $(document).on('click', '.save-btn', function(){
 	var currentCard = $(this).data().value;
 	var newData = $('#'+currentCard).serializeArray();
 
+	if(currentCard === 'skills'){
+		newData[0].value = $('#skills-area').val().replace(/\n/g,"<br>");
+	}
+
 	console.log('put data')
 	console.log(newData);
 
@@ -515,7 +519,7 @@ function refreshSkills(){
 
 									<div class="row">
 										<div class="input-field col s12">
-											<textarea name="Skills" class="materialize-textarea"></textarea>
+											<textarea id="skills-area" name="Skills" class="materialize-textarea"></textarea>
 				          		<label>Skills</label>
 										</div>
 									</div>
@@ -551,7 +555,7 @@ function refreshSkills(){
 
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea name="Skills" class="materialize-textarea">${data[0].Skills}</textarea>
+										<textarea id="skills-area" name="Skills" class="materialize-textarea">${data[0].Skills}</textarea>
 			          		<label>Skills</label>
 									</div>
 								</div>

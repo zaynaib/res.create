@@ -38,7 +38,7 @@ app.delete('/api/skills/:id', function(req,res){
     db.Skills.update(req.body,
     {
         where: {
-            id: req.params.id
+            ResumeId: req.params.id
         }
 }).then(function(dbSkills){
     res.json(dbSkills);

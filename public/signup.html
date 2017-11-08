@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css"  media="screen,projection"/>
+    <!--Import customer stylesheet-->
+    <link type="text/css" rel="stylesheet" href="./css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./css/style.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <!--Top Logo / Navbar-->
+    <nav class="nav cyan lighten-1">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo"> res.create</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/">Sign In</a></li>
+        </ul>
+      </div>   
+    </nav>
+
+    <div id= "body-container" class="container">
+
+      <div id="login-card" class="card">
+        <div class="card-content">
+          <span class="card-title">Sign Up Here</span>
+            <div class="row center">  
+                <form id="signup" name="signup" method="post" action="/signup">
+
+                    <label for="firstname">Firstname</label>
+                    <input name="firstname" type="text" />
+                    <label for="lastname">Lastname</label>
+                    <input name="lastname" type="text" />
+                    <label for="email">Email Address</label>
+                    <input class="text" name="email" type="email" />
+                    <label for="password">Password</label>
+                    <input name="password" type="password" />
+                    <input class="btn" type="submit" value="Sign Up" />
+                  </form>
+            </div>    
+        </div>
+      </div>
+
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  </body>
+</html>

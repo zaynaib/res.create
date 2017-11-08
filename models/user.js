@@ -1,42 +1,54 @@
 module.exports = function(sequelize, DataTypes){
     var User = sequelize.define('User', {
         // Giving the User model its datatypes
-        Name: {
+        id: { 
+            autoIncrement: true,
+             primaryKey: true, 
+             type: DataTypes.INTEGER
+         },
+        firstname: { 
             type: DataTypes.STRING,
-            allowNull: true,
-            validate:  {min: -90, max: 90},
-            defaultValue:""
+            notEmpty: true
         },
+        lastname: { 
+            type: DataTypes.STRING,
+            notEmpty: true
+        },
+        password : {
+            type: DataTypes.STRING,
+            allowNull: false 
+        }, 
         Street: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue:""
+
+            allowNull: false,
+            defaultValue:true
         },
         City: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue:""
+            allowNull: false,
+            defaultValue:true
         },
         State: {
             type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue:""
+            allowNull: false,
+            defaultValue:true
         },
         Zip_Code: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue:""
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            defaultValue:true
         },
         Phone: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            defaultValue:""
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
+            defaultValue:true
         },
         Email: {
             type: DataTypes.STRING,
-            allowNull: true,
-            isEmail: true,
-            defaultValue:""
+            allowNull: false,
+            isEmail: true
         },
         Website: {
             type: DataTypes.STRING

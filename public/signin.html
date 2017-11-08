@@ -14,45 +14,48 @@
   </head>
 
   <body>
-    <!--Top Logo / Navbar-->
-    <nav class="nav cyan lighten-1">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo"><i class="material-icons">description</i>res.create</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <!-- <li><a href="/">Sign Out</a></li> -->
-        </ul>
-      </div>   
-    </nav>
-
-    <div id= "body-container" class="container">
-      <div id="login-card" class="card">
-        <div class="card-content">
-          <span class="card-title">Login</span>
-            <div class="row center">  
-              <form id="signin" name="signin" method="post" action="signin">
-                <label for="email">Email Address</label>
-                <input class="text" name="email" type="text" />
-                <label for="password">Password</label>
-                <input name="password" type="password" />
-                <input class="btn" type="submit" value="Sign In" />
-              </form>
-            </div>    
-        </div>
-      </div>
-    </div>
-    <footer class="page-footer">
-      <div class="container">
+    <header>
+      <!--Top Logo / Navbar-->
+      <nav class="nav cyan lighten-1">
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo"><i class="material-icons">description</i>res.create</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!-- <li><a href="/">Sign Out</a></li> -->
+          </ul>
+        </div>   
+      </nav>
+    </header>
+    
+    <main class="valign-wrapper">
+      <div id= "body-container" class="container">
         <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">res.create Inc.</h5>
-            <p class="grey-text text-lighten-4">Contact Us</p>
+          <div id="login-card" class="card col s12 m6 offset-m3">
+            <div class="card-content">
+              <span class="card-title">Login</span>
+                <div class="row center">  
+                  <form id="signin" name="signin" method="post" action="signin">
+                    <div class="input-field col s12"> 
+                      <input class="text" name="email" type="text">
+                      <label for="email">Email Address</label>
+                    </div>
+                    <div class="input-field col s12"> 
+                      <input name="password" type="password">
+                      <label for "password">Password</label>
+                    </div>
+                    <input class="btn" type="submit" value="Sign In">
+                  </form>
+                </div>    
+            </div>
           </div>
-        </div>
+
       </div>
+    </main>
+
+    <footer class="page-footer cyan">
       <div class="footer-copyright">
         <div class="container">
-        © 2017 Copyright
-        <a class="grey-text text-lighten-4 right" href="https://www.github.com/ttejuosho/res.Create">Project Github Page</a>
+        © 2017 res.create, All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="https://www.github.com/ttejuosho/res.Create">View Github</a>
         </div>
       </div>
     </footer>

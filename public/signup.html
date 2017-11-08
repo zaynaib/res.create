@@ -15,38 +15,61 @@
 
   <body>
     <!--Top Logo / Navbar-->
-    <nav class="nav cyan lighten-1">
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo"><i class="material-icons">description</i>res.create</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/signin">Sign In</a></li>
-        </ul>
-      </div>   
-    </nav>
+    <header>
+      <nav class="nav cyan lighten-1">
+        <div class="nav-wrapper">
+          <a href="/" class="brand-logo"><i class="material-icons">description</i>res.create</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/signin">Sign In</a></li>
+          </ul>
+        </div>   
+      </nav>
+    </header>
 
-    <div id= "body-container" class="container">
+    <main class="valign-wrapper">
+      <div id= "body-container" class="container">
 
-      <div id="login-card" class="card">
-        <div class="card-content">
-          <span class="card-title">Sign Up Here</span>
-            <div class="row center">  
+        <div class="row">
+          <div id="login-card" class="card col s12 m6 offset-m3">
+            <div class="card-content">
+              <span class="card-title">Create an Account</span>
+              <div class="row center">  
                 <form id="signup" name="signup" method="post" action="/signup">
-
+                  <div class="input-field col s12"> 
+                    <input name="firstname" type="text">
                     <label for="firstname">Firstname</label>
-                    <input name="firstname" type="text" />
+                  </div>
+                  <div class="input-field col s12"> 
+                    <input name="lastname" type="text">
                     <label for="lastname">Lastname</label>
-                    <input name="lastname" type="text" />
+                  </div>
+                  <div class="input-field col s12">
+                    <input class="text" name="email" type="email">
                     <label for="email">Email Address</label>
-                    <input class="text" name="email" type="email" />
+                  </div>
+                  <div class="input-field col s12">
+                    <input name="password" type="password">
                     <label for="password">Password</label>
-                    <input name="password" type="password" />
-                    <input class="btn" type="submit" value="Sign Up" />
-                  </form>
-            </div>    
+                  </div>
+
+                  <input class="btn" type="submit" value="Sign Up">
+
+                </form>
+              </div>    
+            </div>
+          </div>
         </div>
       </div>
+    </main>
 
-    </div>
+    <footer class="page-footer cyan">
+      <div class="footer-copyright">
+        <div class="container">
+        © 2017 res.create, All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="https://www.github.com/ttejuosho/res.Create">View Github</a>
+        </div>
+      </div>
+    </footer>
 
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

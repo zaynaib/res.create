@@ -1,7 +1,7 @@
 
 // -- -- GLOBAL VARIABLES -- --
 
-var userId = 1;
+var userId = 0;
 
 // -- -- EVENT HANDLERS -- --
 
@@ -575,21 +575,41 @@ function refreshSkills(){
 
 console.log('data');
 
-$.get("/api/resume/"+userId)
+// $.get("/api/resume/"+userId)
+// 	.done(function(data){
+// 		if(data.length === 0){
+// 			$.post("/api/resume/"+userId)
+// 		}
+// 		console.log(data);
+// 	})
 
+// refreshUser();
+// refreshEducation();
+// refreshEmployment();
+// refreshSkills();
+
+//gets session id and initializes page
+$.get("/sessionUserId")
 	.done(function(data){
-
-		if(data.length === 0){
-
-			$.post("/api/resume/"+userId)
-
-		}
-
+		console.log("auth:")
 		console.log(data);
+		userId = data[0].id;
+		console.log(userId);
+
+		//creates a resume in db if none exists
+		$.get("/api/resume/"+userId)
+		.done(function(data){
+			if(data.length === 0){
+				$.post("/api/resume/"+userId)
+			}
+			console.log(data);
+		})
+
+	//populates forms	
+	refreshUser();
+	refreshEducation();
+	refreshEmployment();
+	refreshSkills();
+
 
 	})
-
-refreshUser();
-refreshEducation();
-refreshEmployment();
-refreshSkills();

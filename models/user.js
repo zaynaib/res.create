@@ -17,41 +17,48 @@ module.exports = function(sequelize, DataTypes){
         password : {
             type: DataTypes.STRING,
             allowNull: false 
+        },
+        Name: {
+            type: DataTypes.STRING,
+
+            allowNull: true,
+            defaultValue:''
         }, 
         Street: {
             type: DataTypes.STRING,
 
-            allowNull: false,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         City: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         State: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         Zip_Code: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            defaultValue:true
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         },
         Phone: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
-            defaultValue:true
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         },
         Email: {
             type: DataTypes.STRING,
-            allowNull: false,
-            isEmail: true
+            allowNull: true,
+            defaultValue:''
         },
         Website: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         }},({timestamps: true}) 
     )
 

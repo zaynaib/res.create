@@ -571,26 +571,11 @@ function refreshSkills(){
 	})
 };
 
-// -- -- MAIN LOGIC -- --
-
-console.log('data');
-
-// $.get("/api/resume/"+userId)
-// 	.done(function(data){
-// 		if(data.length === 0){
-// 			$.post("/api/resume/"+userId)
-// 		}
-// 		console.log(data);
-// 	})
-
-// refreshUser();
-// refreshEducation();
-// refreshEmployment();
-// refreshSkills();
+// -- -- MAIN LOGIC / INITIALIZATION-- --
 
 //gets session id and initializes page
 $.get("/sessionUserId")
-	.done(function(data){
+.done(function(data){
 		console.log("auth:")
 		console.log(data);
 		userId = data[0].id;
@@ -611,5 +596,4 @@ $.get("/sessionUserId")
 	refreshEmployment();
 	refreshSkills();
 
-
-	})
+})

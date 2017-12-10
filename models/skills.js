@@ -1,12 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
     var Skills = sequelize.define('Skills', {
-        skills:  {
+        Skills:  {
             type: DataTypes.TEXT,
-            allowNull: false
+            allowNull: true
         }, 
         Languages: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: '',
+            allowNull: true
         }
     }, ({timestamps: false}))
     
@@ -14,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         Skills.belongsTo(models.Resume, {
             onDelete: 'cascade'
         } 
+    }
     )
     };
     

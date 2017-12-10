@@ -16,51 +16,40 @@
   </head>
 
   <body>
-    <!--Top Logo / Navbar-->
     <header>
+      <!--Top Logo / Navbar-->
       <nav class="nav cyan lighten-1">
         <div class="nav-wrapper">
           <a href="/" class="brand-logo"><i class="material-icons">description</i>res.create</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/signin">Sign In</a></li>
+            <!-- <li><a href="/">Sign Out</a></li> -->
           </ul>
         </div>   
       </nav>
     </header>
-
+    
     <main class="valign-wrapper">
       <div id= "body-container" class="container">
-
         <div class="row">
           <div id="login-card" class="card col s12 m6 offset-m3">
             <div class="card-content">
-              <span class="card-title">Create an Account</span>
-              <div class="row center">  
-                <form id="signup" name="signup" method="post" action="/signup">
-                  <div class="input-field col s12"> 
-                    <input name="firstname" type="text">
-                    <label for="firstname">Firstname</label>
-                  </div>
-                  <div class="input-field col s12"> 
-                    <input name="lastname" type="text">
-                    <label for="lastname">Lastname</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input class="text" name="email" type="email">
-                    <label for="email">Email Address</label>
-                  </div>
-                  <div class="input-field col s12">
-                    <input name="password" type="password">
-                    <label for="password">Password</label>
-                  </div>
-
-                  <input class="btn" type="submit" value="Sign Up">
-
-                </form>
-              </div>    
+              <span class="card-title">Login</span>
+                <div class="row center">  
+                  <form id="signin" name="signin" method="post" action="signin">
+                    <div class="input-field col s12"> 
+                      <input class="text" name="email" type="text">
+                      <label for="email">Email Address</label>
+                    </div>
+                    <div class="input-field col s12"> 
+                      <input name="password" type="password">
+                      <label for "password">Password</label>
+                    </div>
+                    <input class="btn" type="submit" value="Sign In">
+                  </form>
+                </div>    
             </div>
           </div>
-        </div>
+
       </div>
     </main>
 
@@ -72,7 +61,6 @@
         </div>
       </div>
     </footer>
-
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>

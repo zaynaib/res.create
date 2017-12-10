@@ -1,32 +1,40 @@
 module.exports = function(sequelize, DataTypes){
-        var job = sequelize.define('job', {
+
+        var Jobs = sequelize.define('Jobs', {
+
             Job_Title: {
                 type: DataTypes.STRING,
-                allowNull: false,
-            },
-            Start_Date: {
-                type: DataTypes.DATE,
+                defaultValue: '',
                 allowNull: false
             },
+            Start_Date: {
+                type: DataTypes.STRING,
+                defaultValue: '',
+                allowNull: true
+            },
             End_Date: {
-                type: DataTypes.DATE,
+                type: DataTypes.STRING,
+                defaultValue: '',
                 allowNull: true
             },
             Position: {
                 type: DataTypes.STRING,
-                allowNull: false
+                defaultValue: '',
+                allowNull: true
             },
             Company_Name: {
                 type: DataTypes.STRING,
-                allowNull: false
+                defaultValue: '',
+                allowNull: true
             }
         }, ({timestamps: false}) );
 
-        job.associate = function(models) {
-            job.belongsTo(models.Resume, {
-                onDelete: 'cascade'
+
+        Jobs.associate = function(models) {
+            Jobs.belongsTo(models.Resume, {
+                    onDelete: 'cascade'
             });
         };
 
-        return job;
+        return Jobs;
 }

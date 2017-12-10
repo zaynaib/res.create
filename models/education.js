@@ -3,23 +3,33 @@ module.exports = function (sequelize, DataTypes){
     var Education = sequelize.define('Education', {
         School_Name: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: '',
+            allowNull: true
         },
         Degree: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: '',
+            allowNull: true
         },
         Graduation_Date: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: '',
+            allowNull: true
         }
     }, ({timestamps: false}) )
 
     Education.associate = function(models) {
         Education.belongsTo(models.Resume, {
-            onDelete: 'cascade'
+
+            foreignKey: {
+                allowNull: false,
+                onDelete: 'cascade'
+            }
+
         });
     }
 
     return Education;
 }
+
+// comment at the bottom

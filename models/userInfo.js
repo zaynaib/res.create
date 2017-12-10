@@ -1,50 +1,59 @@
 module.exports = function(sequelize, DataTypes){
     var User = sequelize.define('User', {
         // Giving the User model its datatypes
-        Name: {
+        id: { 
+            autoIncrement: true,
+             primaryKey: true, 
+             type: DataTypes.INTEGER
+         },
+        firstname: { 
             type: DataTypes.STRING,
-            allowNull: false,
-            validate:  {min: -90, max: 90},
-            defaultValue:true
+            notEmpty: true
+        },
+        lastname: { 
+            type: DataTypes.STRING,
+            notEmpty: true
         },
         password : {
             type: DataTypes.STRING,
             allowNull: false 
+      
         }, 
         Street: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:true
+
+            allowNull: true,
+            defaultValue:''
         },
         City: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         State: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         Zip_Code: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            defaultValue:true
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         },
         Phone: {
-            type: DataTypes.BIGINT,
-            allowNull: false,
-            is: [/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/],
-            defaultValue:true
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         },
         Email: {
             type: DataTypes.STRING,
-            allowNull: false,
-            isEmail: true,
-            defaultValue:true
+            allowNull: true,
+            defaultValue:''
         },
         Website: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: true,
+            defaultValue:''
         }},({timestamps: true}) 
     )
 

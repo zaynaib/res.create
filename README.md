@@ -1,13 +1,9 @@
 # res.create
 
-res.create is a resume generator.  
-
-Deployment Link to res.create can be found on Heroku : https://res-create.herokuapp.com
-
 ## Description
 
-Each user will sign up for res.create by inputting their email address and creating a password. This will then result in res.create saving their resume information so every time they log in, their resume information they inputted previously is accessible to them. 
-
+There are a lot of online resume generators online but the majority of free online generators are not done very well. res.create is an
+attempt for a solution.
 
 ## Team Members   
 	 Taiwo Tejuosho (BackEnd) 
@@ -15,6 +11,11 @@ Each user will sign up for res.create by inputting their email address and creat
 	 Zaynaib Giwa   (BackEnd)
 	 Scott Foster   (FrontEnd)
 
+## How the app works
+
+Each user will sign up for res.create by inputting their email address and creating a password. This will then result in res.create saving their resume information so every time they log in, their resume information they inputted previously is accessible to them. 
+
+Deployment Link to res.create can be found on Heroku : https://res-create.herokuapp.com
 
 
  ## Running Locally
@@ -23,7 +24,6 @@ Each user will sign up for res.create by inputting their email address and creat
 
  ```
  git clone https://github.com/zaynaib/res.create.git or clone your own fork
- cd node-js-sample
  npm install
  npm start
 
@@ -31,11 +31,16 @@ Each user will sign up for res.create by inputting their email address and creat
 
  Your app should now be running on localhost:3000.
 
-## Dependencies 
+## Technologies Used 
 
-##How to Download
+	* Materialized CSS Framework
+	* Express
+	* Passport and Passport local
+	* Bycrpt
+	* Sequelize
 
-##Bugs
+
+
 
 
 

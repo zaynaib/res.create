@@ -5,11 +5,12 @@
 There are a lot of online resume generators online but the majority of free online generators are not done very well. res.create is an
 attempt for a solution.
 
-## Team Members   
-	 Taiwo Tejuosho (BackEnd) 
-	 Nicole Ersing  (FrontEnd)
-	 Zaynaib Giwa   (BackEnd)
-	 Scott Foster   (FrontEnd)
+## Team Members 
+
+Taiwo Tejuosho (BackEnd) 
+Nicole Ersing  (FrontEnd)
+Zaynaib Giwa   (BackEnd)
+Scott Foster   (FrontEnd)
 
 ## How the app works
 
@@ -33,11 +34,11 @@ Deployment Link to res.create can be found on Heroku : https://res-create.heroku
 
 ## Technologies Used 
 
-	* Materialized CSS Framework
-	* Express
-	* Passport and Passport local
-	* Bycrpt
-	* Sequelize
+* Materialized CSS Framework
+* Express
+* Passport and Passport local
+* Bycrpt
+* Sequelize
 
 
 

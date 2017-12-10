@@ -13,6 +13,8 @@ module.exports = function(sequelize, DataTypes) {
     
     Skills.associate = function(models) {
         Skills.belongsTo(models.Resume, {
+            foreignKey: {
+            allowNull: false,
             onDelete: 'cascade'
         } 
     }
